@@ -18,6 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLinkWithHref } from '@angular/router';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { RouterLinkWithHref } from '@angular/router';
     MatCardModule,
     MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressBarModule,
   ],
   providers: [
     // { provide: LocationStrategy, useClass: HashLocationStrategy }

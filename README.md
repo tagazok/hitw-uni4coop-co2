@@ -1,4 +1,10 @@
-# hitw-uni4coop-co2
+# Hack In The Wood (HITW) - Uni4Coop
+This project was born at the [HITW 2022](https://www.hackinthewoods.be/), a festival for developers who
+code for a better world.
+
+We collaborated with [Uni4Coop](https://uni4coop.com/fr), a consortium of NGOs, on a project aiming at creating awareness of the ecological impact of air travel and then try to compensate for it.
+
+Our application takes as input flights departure and destination in order to estimate environmental impact. We can then calculate several ways the person can compensate by for instance taking challenges such as going vegeterian for a certain amount of days, or taking public transports instead of their cars or financing projects to reduce other emissions or to sequester carbon.
 
 # How to dev
  - install the Static Web App CLI ([download here](https://github.com/Azure/static-web-apps-cli))

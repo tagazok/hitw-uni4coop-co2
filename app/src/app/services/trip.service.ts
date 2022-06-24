@@ -26,7 +26,7 @@ export class TripService {
   }
 
   public login(): Observable<User> {
-    return this.httpClient.post(this.loginAPI, {});
+    return this.httpClient.post<any>(this.loginAPI, {});
   }
 
 }

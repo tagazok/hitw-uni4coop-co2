@@ -9,9 +9,9 @@ using Newtonsoft.Json;
 
 namespace HITW.Function
 {
-    public static class HttpTrigger1
+    public static class Trips
     {
-        [FunctionName("HttpTrigger1")]
+        [FunctionName("Trips")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
