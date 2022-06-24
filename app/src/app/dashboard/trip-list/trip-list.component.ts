@@ -19,11 +19,14 @@ export class TripListComponent implements OnInit {
   }
 
   private getTrips() {
-    this.tripService.getTrips().subscribe(
-      (trips) => {
+    this.tripService.getTrips().subscribe({
+      next: (trips) => {
         this.trips = trips;
+      },
+      error: (err) => {
+        console.log(err)
       }
-    )
+    });
   }
 
 }
