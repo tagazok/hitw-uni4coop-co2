@@ -20,4 +20,24 @@ h1 {
     color: grey;
 }
 
-.percentage {}
+.percentage {
+    margin: -16px;
+    background: orange;
+    padding: 0 1em;
+    border-radius: 90% 0 0 30%;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.green {
+    background-color: #198754;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.red {
+    background-color: #dc3545;
+}
