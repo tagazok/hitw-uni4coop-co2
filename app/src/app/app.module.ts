@@ -9,6 +9,9 @@ import { HomeComponent } from './dashboard/home/home.component';
 import { TripListComponent } from './dashboard/trip-list/trip-list.component';
 import { TripAddComponent } from './dashboard/trip-add/trip-add.component';
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +22,8 @@ import { TripAddComponent } from './dashboard/trip-add/trip-add.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }
