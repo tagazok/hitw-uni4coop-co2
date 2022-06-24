@@ -49,6 +49,7 @@ We rounded estimations for showers and bath at 50L of water for a shower and 150
 We also found on this [website](https://wint.ai/the-carbon-footprint-of-water/#:~:text=The%20energy%20requirement%2C%20combined%20with,the%20%E2%80%9Crespect%E2%80%9D%20it%20deserves.) that :
 > on average, every cubic meter of water consumed generates 23lb (or 10.6Kg) of carbon emissions.
 
+This means that 1000L of water consumes 10.6kg of CO2, therefore an average shower consumes 50/1000 x 10600 = 530g of CO2 and a bath 150/1000 x 10600 = 1590g. Therefore the amount of CO2 saved between a shower and a bath is the difference 1590 - 530 = 1060g that we rounded to 1.1kg for simplicity.
 
 4. *Reuse platic bag instead of buying one saves 200g CO2.*
 
