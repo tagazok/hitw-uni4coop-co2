@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Trip } from '../models/trip';
-import { TripService } from '../services/trip.service';
+import { Trip } from '../../models/trip';
+import { TripService } from '../../services/trip.service';
 
 @Component({
   selector: 'app-trip-info',
