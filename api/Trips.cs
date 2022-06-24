@@ -15,6 +15,7 @@ using api.Data.Models;
 using Flurl.Http;
 using Flurl;
 using System;
+using System.Net.Http;
 
 namespace HITW.Function
 {
@@ -63,15 +64,26 @@ namespace HITW.Function
 
             var body = JsonConvert.DeserializeObject<Trip>(await new StreamReader(req.Body).ReadToEndAsync());
 
-            var resp = await "https://beta3.api.climatiq.io/travel/flights"
-                .WithOAuthBearerToken(apiKey)
-                .PostJsonAsync(new ClimatiqReq
-                {
-                    From =  body.Departure,
-                    To = body.Arrival,
-                    Passengers = 1,
-                    Cl = "economy"
-                }).ReceiveJson<ClimatiqResp>();
+            var payload =   new {
+                        legs = new []
+                        {
+                            new ClimatiqReq
+                            {
+                                From =  body.Departure,
+                                To = body.Arrival,
+                                Passengers = 1,
+                                Cl = "economy"
+                            }
+                        }};
+
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
+            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json");
+
+            var rawResp = await httpClient.PostAsJsonAsync("https://beta3.api.climatiq.io/travel/flights", payload);
+
+            var resp = JsonConvert.DeserializeObject<ClimatiqResp>(await rawResp.Content.ReadAsStringAsync());
 
             var trip = new Trip
             {
@@ -119,7 +131,7 @@ namespace HITW.Function
                 co2 = x.Co2Kg,
                 departure = x.Departure,
                 arrival = x.Arrival,
-                percentage = 0,
+                percentage = new Random().Next(0, 100),
                 isRoundTrip = x.IsRoundTrip,
             }).ToList());
         }
