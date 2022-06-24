@@ -29,11 +29,14 @@ swa start
 # Calculation methods
 Estimated amount of CO2 saved are extrapolated from different sources.
 
-1. Going vegetarian for one day would save 3 kg of CO2
+1. Going vegetarian for one day would save 3kg of CO2
 2. Taking public transport or bicycle would save 70% of your carbon footprint by car for the same distance
-3. Taking a shower instead of a bath would save 1.1 kg of CO2
+3. Taking a shower instead of a bath would save 1.1kg of CO2
 4. Reuse platic bag instead of buying one saves 200g CO2
 5. Recycling everything that can be recycled at your home would saves 2kg of CO2
 6. Turn off all electrical devices (no battery saver) that you don't use and unplug 
-everything that is charged saves 2 kg of CO2
-7. Turn down your thermostats by one degree saves 1 kg CO2
+everything that is charged saves 2kg of CO2
+7. Turn down your thermostats by one degree saves 1kg CO2. This estimation comes from this [website](https://www.count-us-in.org/en-gb/steps/dial-it-down/#:~:text=Turning%20down%20your%20thermostat%20by,thermostat%20has%20other%20benefits%20too.) where they state that:
+> Turning down your thermostat by one degree can reduce your carbon pollution by up to 340kg *[each year]*
+
+Considering 365 days in a year, this gives 340/365 = 0.93kg/day that we rounded up to 1kg.
