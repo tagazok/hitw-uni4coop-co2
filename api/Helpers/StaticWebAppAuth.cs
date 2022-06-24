@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace HITW.Function.Helpers;
 
-public static class StaticWebAppsAuth
+public static class StaticWebAppAuth
 {
   private class ClientPrincipal
   {

@@ -19,6 +19,8 @@ namespace api.Data.Models
         public string Lastname { get; set; }
         [StringLength(50)]
         public string Firtsname { get; set; }
+        [StringLength(256)]
+        public string ExternalId { get; set; }
 
         [InverseProperty("User")]
         public virtual ICollection<Trip> Trips { get; set; }
