@@ -1,0 +1,24 @@
+{
+    "routes": [
+        {
+            "route": "/api/*",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        },
+        {
+            "route": "/dashboard/*",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        }
+    ],
+    "responseOverrides": {
+        "401": {
+            "rewrite": "/login.html"
+        },
+        "404": {
+            "rewrite": "/custom-404.html"
+        }
+    }
+}
