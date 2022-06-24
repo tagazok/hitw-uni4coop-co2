@@ -5,7 +5,7 @@
     <!-- <mat-icon aria-hidden="false">workspace_premium</mat-icon> -->
     <img id="trophy" src="/assets/images/trophy.png" />
     <div class="flex-grow flex flex-direction-column justify-content-center" id="infos">
-      <p>{{ (total / currentStatus) * 100 }}/{{ total }} kgs de CO2</p>
+      <p>{{ (total / currentStatus) * 100 | number: '1.0-0'}}/{{ total | number: '1.0-0' }} kgs de CO2</p>
       <p>{{nbTrips}} Trips</p>
       <!-- <mat-progress-bar mode="determinate" [value]="currentStatus"></mat-progress-bar> -->
     </div>
@@ -17,6 +17,15 @@
   </div>
 </div>
 <app-trip-list></app-trip-list>
-<a mat-fab color="primary" aria-label="Add new trip" id="btn-add" routerLink="/dashboard/trips/add">
+<button mat-fab color="primary" aria-label="Add new trip" id="btn-add" [matMenuTriggerFor]="menu">
   <mat-icon>add</mat-icon>
-</a>
+</button>
+<mat-menu #menu="matMenu">
+  <a mat-menu-item routerLink="/dashboard/trips/add">Add a travel</a>
+  <a mat-menu-item routerLink="/dashboard/trips/add">Add an activity</a>
+</mat-menu>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>

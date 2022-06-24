@@ -25,6 +25,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TripInfoComponent } from './dashboard/trip-info/trip-info.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatAutocompleteModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [
     // { provide: LocationStrategy, useClass: HashLocationStrategy }

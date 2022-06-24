@@ -9,7 +9,8 @@
           <h1>{{trip.label}}</h1>
           <div class="flex flex-direction-row align-items-center trip">
             <span class="airport-code">{{trip.departure}}</span>
-            <mat-icon class="rotate-90deg">airplanemode_active</mat-icon>
+            <mat-icon *ngIf="trip.isRoundTrip">connecting_airports</mat-icon>
+            <mat-icon *ngIf="!trip.isRoundTrip" class="rotate-90deg">airplanemode_active</mat-icon>
             <span class="airport-code">{{trip.arrival}}</span>
           </div>
         </div>
