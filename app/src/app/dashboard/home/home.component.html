@@ -1,11 +1,21 @@
-<mat-card>
-  <mat-card-title>Total</mat-card-title>
-  <mat-card-subtitle>Vos émissions carbonnes totales:</mat-card-subtitle>
-  <mat-card-content>
-    <p>{{ (total / currentStatus) * 100 }}/{{ total }} kgs de CO2</p>
-    <mat-progress-bar mode="determinate" [value]="currentStatus"></mat-progress-bar>
-  </mat-card-content>
-</mat-card>
+<div class="padding-1 padding-top-2 padding-bottom-2" id="header">
+  <!-- <h1 class="text-center">TOTAL</h1> -->
+  <!-- <div>Vos émissions carbonnes totales:</div> -->
+  <div class="flex flex-direcrtion-row">
+    <!-- <mat-icon aria-hidden="false">workspace_premium</mat-icon> -->
+    <img id="trophy" src="/assets/images/trophy.png" />
+    <div class="flex-grow flex flex-direction-column justify-content-center" id="infos">
+      <p>{{ (total / currentStatus) * 100 }}/{{ total }} kgs de CO2</p>
+      <p>{{nbTrips}} Trips</p>
+      <!-- <mat-progress-bar mode="determinate" [value]="currentStatus"></mat-progress-bar> -->
+    </div>
+    <div class="spinner">
+      <div class="spinner-value">64%</div>
+      <mat-progress-spinner color="accent" mode="determinate" value="64">
+      </mat-progress-spinner>
+    </div>
+  </div>
+</div>
 <app-trip-list></app-trip-list>
 <a mat-fab color="primary" aria-label="Add new trip" id="btn-add" routerLink="/dashboard/trips/add">
   <mat-icon>add</mat-icon>

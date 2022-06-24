@@ -9,7 +9,7 @@ import { TripService } from 'src/app/services/trip.service';
 export class HomeComponent implements OnInit {
   public total: number = 0;
   public currentStatus: number = 0;
-
+  public nbTrips: number = 0;
   constructor(
     private tripService: TripService
   ) { }
@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
           (trip) => {
             this.total += trip.co2;
             this.currentStatus += trip.percentage;
+            this.nbTrips++;
           }
         )
         this.currentStatus = this.currentStatus / trips.length;

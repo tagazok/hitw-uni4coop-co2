@@ -3,3 +3,33 @@
     bottom: 1em;
     right: 1em;
 }
+
+#header {
+    // background-color: #5268e5;
+    background: rgb(98, 2, 207);
+    background: linear-gradient(45deg, rgba(98, 2, 207, 1) 0%, rgba(92, 0, 242, 1) 100%);
+    color: #fff;
+    position: relative;
+
+    #trophy {
+        position: absolute;
+        max-width: 25%;
+        opacity: .1;
+    }
+
+    #infos {
+        font-size: 1.5em;
+    }
+}
+
+.spinner {
+    position: relative;
+
+    .spinner-value {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        font-size: 2em;
+        transform: translate(-50%, -50%);
+    }
+}
