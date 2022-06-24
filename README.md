@@ -63,8 +63,15 @@ This estimation comes from [this article](https://changeit.app/blog/recycle-matt
 > You could save up to 61kg of carbon emissions per month by recycling as much as possible.
 Considering approximatively 30 days a month, 61/30 = 2kg/day.
 
+
 6. Turn off all electrical devices (no battery saver) that you don't use and unplug 
-everything that is charged saves 2kg of CO2
+everything that is charged saves 2kg of CO2.
+
+This estimation comes from this [website](https://sustainability.tufts.edu/wp-content/uploads/Computer_brochures.pdf) stating that : 
+> One computer left on 24 hours a day will cost you $115 - 160 in electricity costs a year and dump 1,500 pounds of CO2 into the atmosphere. 
+
+A very rough estimation we made is that a computer left turned on for a year would cost around 680kg per year. 
+
 7. *Turn down your thermostats by one degree saves 1kg CO2.* 
 
 This estimation comes from this [website](https://www.count-us-in.org/en-gb/steps/dial-it-down/#:~:text=Turning%20down%20your%20thermostat%20by,thermostat%20has%20other%20benefits%20too.) where they state that:
