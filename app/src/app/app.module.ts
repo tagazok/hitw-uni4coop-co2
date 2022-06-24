@@ -12,6 +12,9 @@ import { TripAddComponent } from './dashboard/trip-add/trip-add.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
@@ -19,16 +22,17 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     LoginComponent,
     HomeComponent,
     TripListComponent,
-    TripAddComponent
+    TripAddComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    // { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })
