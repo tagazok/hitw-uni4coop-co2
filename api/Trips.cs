@@ -17,8 +17,7 @@ namespace HITW.Function
 {
     public class Trips
     {
-        private HITWDbContext _dbContext;
-
+        private readonly HITWDbContext _dbContext;
         public Trips(HITWDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -36,9 +35,9 @@ namespace HITW.Function
             {
                 return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
             }
-
+        
             var body = JsonConvert.DeserializeObject<Trip>(await new StreamReader(req.Body).ReadToEndAsync());
-
+        
             var trip = new Trip
             {
                 Label = body.Label,
@@ -48,6 +47,9 @@ namespace HITW.Function
                 UserId = user.Id,
             };
 
+            _dbContext.Trips.Add(trip);
+            _dbContext.SaveChanges();
+        
             return new OkObjectResult(_dbContext.Trips.Where(x => x.UserId == user.Id).Select(x => new
             {
                 label = x.Label,
@@ -57,7 +59,7 @@ namespace HITW.Function
                 arrival = x.Arrival,
                 percentage = 0,
                 isRoundTrip = x.IsRoundTrip,
-            }));
+            }).SingleOrDefault());
         }
 
         [FunctionName("TripsList")]
@@ -68,6 +70,7 @@ namespace HITW.Function
             var u = StaticWebAppAuth.Parse(req);
             var externalId = u.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             var user = _dbContext.Users.Where(x => x.ExternalId == externalId).SingleOrDefault();
+            
             if (user is null)
             {
                 return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
@@ -82,7 +85,7 @@ namespace HITW.Function
                 arrival = x.Arrival,
                 percentage = 0,
                 isRoundTrip = x.IsRoundTrip,
-            }));
+            }).ToList());
         }
     }
 }

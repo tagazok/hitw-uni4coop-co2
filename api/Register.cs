@@ -14,7 +14,7 @@ namespace HITW.Function
 {
     public class Register
     {
-        private HITWDbContext _dbContext;
+        private readonly HITWDbContext _dbContext;
 
         public Register(HITWDbContext dbContext)
         {
