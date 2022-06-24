@@ -55,7 +55,7 @@ This means that 1000L of water consumes 10.6kg of CO2, therefore an average show
 
 4. *Reuse platic bag instead of buying one saves 200g CO2.*
 
-This estimation comes from [This article](https://timeforchange.org/plastic-bags-and-plastic-bottles-co2-emissions-during-their-lifetime/) stating that:
+This estimation comes from [this article](https://timeforchange.org/plastic-bags-and-plastic-bottles-co2-emissions-during-their-lifetime/) stating that:
 > For 5 plastic bags you get 1 kg of CO2
 Considering 1 bag, we get 1000/5 = 200g/bag.
 
