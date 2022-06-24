@@ -1,5 +1,9 @@
 mat-card {
     margin-bottom: .5em;
+
+    &:last-child {
+        margin-bottom: 5em;
+    }
 }
 
 .airport-code {
@@ -14,6 +18,9 @@ mat-card {
 
 h1 {
     margin-bottom: .1em;
+    // white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
 }
 
 .trip {
