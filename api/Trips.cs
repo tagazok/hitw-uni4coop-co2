@@ -13,6 +13,8 @@ using System.Security.Claims;
 using System.Net;
 using api.Data.Models;
 using Flurl.Http;
+using Flurl;
+using System;
 
 namespace HITW.Function
 {
@@ -20,6 +22,20 @@ namespace HITW.Function
     {
         [JsonProperty("co2e")]
         public double Co2e { get; set; }
+    }
+    public class ClimatiqReq
+    {
+        [JsonProperty("from")]
+        public string From { get; set; }
+
+        [JsonProperty("to")]
+        public string To { get; set; }
+
+        [JsonProperty("passengers")]
+        public int Passengers { get; set; }
+
+        [JsonProperty("class")]
+        public string Cl { get; set; }
     }
 
     public class Trips
@@ -35,6 +51,8 @@ namespace HITW.Function
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "Trips")] HttpRequest req,
             ILogger log)
         {
+            var apiKey = Environment.GetEnvironmentVariable("ClimatiqApiKey");
+
             var u = StaticWebAppAuth.Parse(req);
             var externalId = u.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             var user = _dbContext.Users.Where(x => x.ExternalId == externalId).SingleOrDefault();
@@ -46,14 +64,14 @@ namespace HITW.Function
             var body = JsonConvert.DeserializeObject<Trip>(await new StreamReader(req.Body).ReadToEndAsync());
 
             var resp = await "https://beta3.api.climatiq.io/travel/flights"
-                .WithOAuthBearerToken("XNVBAM6P1E46RQGPBXNWDAC9B916")
-                .PostJsonAsync(new
+                .WithOAuthBearerToken(apiKey)
+                .PostJsonAsync(new ClimatiqReq
                 {
-                    from = body.Departure,
-                    to = body.Arrival,
-                    passengers = 1,
-                    class = "economy"
-                }).GetJson<ClimatiqResp>();
+                    From =  body.Departure,
+                    To = body.Arrival,
+                    Passengers = 1,
+                    Cl = "economy"
+                }).ReceiveJson<ClimatiqResp>();
 
             var trip = new Trip
             {
@@ -62,6 +80,7 @@ namespace HITW.Function
                 Arrival = body.Arrival,
                 IsRoundTrip = body.IsRoundTrip,
                 UserId = user.Id,
+                Co2Kg = (int)Math.Round(resp.Co2e),
             };
 
             _dbContext.Trips.Add(trip);
@@ -74,7 +93,7 @@ namespace HITW.Function
                 co2 = x.Co2Kg,
                 departure = x.Departure,
                 arrival = x.Arrival,
-                percentage = 0,
+                percentage = new Random().Next(0, 100),
                 isRoundTrip = x.IsRoundTrip,
             }).SingleOrDefault());
         }
