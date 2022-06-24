@@ -8,8 +8,8 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class TripService {
-  private urlAPI = '/api/trip/';
-  private loginAPI = '/api/login';
+  private urlAPI = '/api/trips/';
+  private loginAPI = '/api/register';
 
   constructor(
     private httpClient: HttpClient
