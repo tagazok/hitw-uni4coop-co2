@@ -1,11 +1,9 @@
-using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using HITW.Function.Helpers;
 using api.Data;
 using api.Data.Models;
@@ -36,6 +34,7 @@ namespace HITW.Function
             {
                 _dbContext.Users.Add(new User
                 {
+                    ExternalId = id,
                 });
             }
 
