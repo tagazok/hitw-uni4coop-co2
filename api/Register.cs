@@ -30,27 +30,18 @@ namespace HITW.Function
         {
             var u = StaticWebAppAuth.Parse(req);
 
-            _dbContext.Users.Add(new User
+            var id = u.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            if (_dbContext.Users.Where(x => x.ExternalId == id).FirstOrDefault() is null)
             {
-                //ExternalId = u.Claims.FirstOrDefault(ClaimTypes.NameIdentifier),
-               // Name = u.Identity.Name;
-               // Email = u.Identity.Name,
-               // Role = "user"
-            });
+                _dbContext.Users.Add(new User
+                {
+                });
+            }
 
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            _dbContext.SaveChanges();
 
-            string name = req.Query["name"];
-
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
-
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
-
-            return new OkObjectResult(responseMessage);
+            return new OkResult();
         }
     }
 }
