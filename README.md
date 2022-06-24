@@ -37,8 +37,10 @@ This estimation comes from this [article](https://youmatter.world/fr/regime-alim
 
 This estimation comes from [this article](https://www.bloomberg.com/news/articles/2021-03-31/switching-from-cars-to-bikes-cuts-commuting-emissions-by-67#xj4y7vzkg) stating:
 > Switching From Cars to Bikes Cuts Commuting Emissions by 67%
+
 We therefore consider the distance one would do by car, estimate the carbon footprint of this ride and consider 67% of this amount as carbon saved. For instance, someone took public transportation for 20km. According to this [website](https://www.liberation.fr/checknews/2018/12/21/un-trajet-en-avion-est-il-vraiment-plus-polluant-qu-un-trajet-en-voiture-ou-en-train_1679761/)
 > une voiture neuve, en 2015, émet 110 grammes de CO2 par kilomètre
+
 So for this ride, the carbon footprint would be 20 * 110 = 2.2kg. We then consider 67% of this amount so 2.2 * 0.67 = 1.5kg of CO2 saved. 
 
 3. *Taking a shower instead of a bath would save 1.1kg of CO2.*
@@ -53,7 +55,7 @@ This means that 1000L of water consumes 10.6kg of CO2, therefore an average show
 
 4. *Reuse platic bag instead of buying one saves 200g CO2.*
 
-This estimation comes from [This article](https://timeforchange.org/plastic-bags-and-plastic-bottles-co2-emissions-during-their-lifetime/) stating that:
+This estimation comes from [this article](https://timeforchange.org/plastic-bags-and-plastic-bottles-co2-emissions-during-their-lifetime/) stating that:
 > For 5 plastic bags you get 1 kg of CO2
 Considering 1 bag, we get 1000/5 = 200g/bag.
 
@@ -64,13 +66,12 @@ This estimation comes from [this article](https://changeit.app/blog/recycle-matt
 Considering approximatively 30 days a month, 61/30 = 2kg/day.
 
 
-6. Turn off all electrical devices (no battery saver) that you don't use and unplug 
-everything that is charged saves 2kg of CO2.
+6. Turn off your computer (no battery saver) when not using it would save around 200g of CO2 per day.
 
-This estimation comes from this [website](https://sustainability.tufts.edu/wp-content/uploads/Computer_brochures.pdf) stating that : 
-> One computer left on 24 hours a day will cost you $115 - 160 in electricity costs a year and dump 1,500 pounds of CO2 into the atmosphere. 
+This estimation comes from this [website](http://content.time.com/time/specials/2007/environment/article/0,28804,1602354_1603074_1603535,00.html#:~:text=Compared%20with%20a%20machine%20left,just%2063%20kg%20a%20year.) stating that : 
+> Shutting it *[your computer]* off would reduce the machine's CO2 emissions 83%, to just 63 kg a year. 
 
-A very rough estimation we made is that a computer left turned on for a year would cost around 680kg per year. 
+We estimated that 63/365 = 0.172g rounded up to 200g for simplicity
 
 7. *Turn down your thermostats by one degree saves 1kg CO2.* 
 
