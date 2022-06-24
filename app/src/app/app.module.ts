@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 // Angular Materials
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { MatCardModule } from '@angular/material/card';
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
+    MatProgressBarModule,
   ],
   providers: [
     // { provide: LocationStrategy, useClass: HashLocationStrategy }

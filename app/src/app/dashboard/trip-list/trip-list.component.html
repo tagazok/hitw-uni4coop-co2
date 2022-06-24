@@ -1,6 +1,8 @@
-<mat-card *ngFor="let trip of trips">
-  <mat-card-title>{{ trip.label }}</mat-card-title>
-  <mat-card-subtitle
-    >{{ trip.departure }} - {{ trip.arrival }}</mat-card-subtitle
-  >
-</mat-card>
+<div class="flex flex-direction-row">
+  <mat-card *ngFor="let trip of trips">
+    <mat-card-title>{{ trip.label }}</mat-card-title>
+    <mat-card-subtitle
+      >{{ trip.departure }} - {{ trip.arrival }}</mat-card-subtitle
+    >
+  </mat-card>
+</div>
