@@ -14,3 +14,11 @@
 ```bash
 npm install -g azure-functions-core-tools@3 --unsafe-perm true
 ```
+
+# How to run
+```bash
+cd app
+npm install
+cd ..
+swa start
+```
