@@ -10,6 +10,7 @@ namespace api.Data.Models
     {
         public User()
         {
+            Histories = new HashSet<History>();
             Trips = new HashSet<Trip>();
         }
 
@@ -22,6 +23,8 @@ namespace api.Data.Models
         [StringLength(256)]
         public string ExternalId { get; set; }
 
+        [InverseProperty("User")]
+        public virtual ICollection<History> Histories { get; set; }
         [InverseProperty("User")]
         public virtual ICollection<Trip> Trips { get; set; }
     }
