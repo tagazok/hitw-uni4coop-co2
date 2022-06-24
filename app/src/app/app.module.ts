@@ -22,7 +22,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { TripComponent } from './dashboard/trip/trip.component';
+import { TripInfoComponent } from './dashboard/trip-info/trip-info.component';
 
 
 @NgModule({
@@ -32,7 +32,7 @@ import { TripComponent } from './dashboard/trip/trip.component';
     HomeComponent,
     TripListComponent,
     TripAddComponent,
-    TripComponent,
+    TripInfoComponent
   ],
   imports: [
     BrowserModule,

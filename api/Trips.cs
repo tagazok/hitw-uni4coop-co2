@@ -6,29 +6,83 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using api.Data;
+using HITW.Function.Helpers;
+using System.Linq;
+using System.Security.Claims;
+using System.Net;
+using api.Data.Models;
 
 namespace HITW.Function
 {
-    public static class Trips
+    public class Trips
     {
-        [FunctionName("Trips")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+        private HITWDbContext _dbContext;
+
+        public Trips(HITWDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        [FunctionName("TripAdd")]
+        public async Task<IActionResult> TripAdd(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "Trips")] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            var u = StaticWebAppAuth.Parse(req);
+            var externalId = u.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var user = _dbContext.Users.Where(x => x.ExternalId == externalId).SingleOrDefault();
+            if (user is null)
+            {
+                return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
+            }
 
-            string name = req.Query["name"];
+            var body = JsonConvert.DeserializeObject<Trip>(await new StreamReader(req.Body).ReadToEndAsync());
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
+            var trip = new Trip
+            {
+                Label = body.Label,
+                Departure = body.Departure,
+                Arrival = body.Arrival,
+                IsRoundTrip = body.IsRoundTrip,
+                UserId = user.Id,
+            };
 
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+            return new OkObjectResult(_dbContext.Trips.Where(x => x.UserId == user.Id).Select(x => new
+            {
+                label = x.Label,
+                id = x.Id,
+                co2 = x.Co2Kg,
+                departure = x.Departure,
+                arrival = x.Arrival,
+                percentage = 0,
+                isRoundTrip = x.IsRoundTrip,
+            }));
+        }
 
-            return new OkObjectResult(responseMessage);
+        [FunctionName("TripsList")]
+        public async Task<IActionResult> TripsList(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Trips")] HttpRequest req,
+            ILogger log)
+        {
+            var u = StaticWebAppAuth.Parse(req);
+            var externalId = u.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var user = _dbContext.Users.Where(x => x.ExternalId == externalId).SingleOrDefault();
+            if (user is null)
+            {
+                return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
+            }
+
+            return new OkObjectResult(_dbContext.Trips.Where(x => x.UserId == user.Id).Select(x => new
+            {
+                label = x.Label,
+                id = x.Id,
+                co2 = x.Co2Kg,
+                departure = x.Departure,
+                arrival = x.Arrival,
+                percentage = 0,
+                isRoundTrip = x.IsRoundTrip,
+            }));
         }
     }
 }
