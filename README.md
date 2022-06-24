@@ -64,13 +64,12 @@ This estimation comes from [this article](https://changeit.app/blog/recycle-matt
 Considering approximatively 30 days a month, 61/30 = 2kg/day.
 
 
-6. Turn off all electrical devices (no battery saver) that you don't use and unplug 
-everything that is charged saves 2kg of CO2.
+6. Turn off your computer (no battery saver) when not using it would save around 200g of CO2 per day.
 
-This estimation comes from this [website](https://sustainability.tufts.edu/wp-content/uploads/Computer_brochures.pdf) stating that : 
-> One computer left on 24 hours a day will cost you $115 - 160 in electricity costs a year and dump 1,500 pounds of CO2 into the atmosphere. 
+This estimation comes from this [website](http://content.time.com/time/specials/2007/environment/article/0,28804,1602354_1603074_1603535,00.html#:~:text=Compared%20with%20a%20machine%20left,just%2063%20kg%20a%20year.) stating that : 
+> Shutting it *[your computer]* off would reduce the machine's CO2 emissions 83%, to just 63 kg a year. 
 
-A very rough estimation we made is that a computer left turned on for a year would cost around 680kg per year. 
+We estimated that 63/365 = 0.172g rounded up to 200g for simplicity
 
 7. *Turn down your thermostats by one degree saves 1kg CO2.* 
 
