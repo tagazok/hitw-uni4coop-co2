@@ -11,6 +11,9 @@ import { TripAddComponent } from './dashboard/trip-add/trip-add.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+// Angular Materials
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy }

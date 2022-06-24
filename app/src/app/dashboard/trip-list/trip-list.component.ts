@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Trip } from 'src/app/models/trip';
+import { TripService } from 'src/app/services/trip.service';
 
 @Component({
   selector: 'app-trip-list',
@@ -6,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trip-list.component.scss']
 })
 export class TripListComponent implements OnInit {
+  public trips: Trip[] = [];
 
-  constructor() { }
+  constructor(
+    private tripService: TripService
+  ) { }
 
   ngOnInit(): void {
+    this.getTrips();
+  }
+
+  private getTrips() {
+    this.tripService.getTrips().subscribe(
+      (trips) => {
+        this.trips = trips;
+      }
+    )
   }
 
 }
