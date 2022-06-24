@@ -4,5 +4,11 @@
     <mat-card-subtitle
       >{{ trip.departure }} - {{ trip.arrival }}</mat-card-subtitle
     >
+    <mat-card-content>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="trip.percentage"
+      ></mat-progress-bar>
+    </mat-card-content>
   </mat-card>
 </div>
