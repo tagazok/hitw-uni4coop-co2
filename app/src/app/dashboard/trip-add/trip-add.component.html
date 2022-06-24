@@ -1,1 +1,19 @@
-<p>trip-add works!</p>
+<div [formGroup]="addTripForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Label</mat-label>
+        <input formControlName="label" required />
+        <mat-icon matSuffix>label</mat-icon>
+        <mat-hint>Give a name to your trip</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Departure</mat-label>
+        <input formControlName="departure" required />
+        <mat-icon matSuffix>departure</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Arrival</mat-label>
+        <input formControlName="label" required />
+        <mat-icon matSuffix>arrival</mat-icon>
+    </mat-form-field>
+    <button type="submit" [disabled]="!addTripForm.valid">Add</button>
+</div>

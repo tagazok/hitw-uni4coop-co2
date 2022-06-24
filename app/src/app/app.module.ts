@@ -11,12 +11,13 @@ import { TripListComponent } from './dashboard/trip-list/trip-list.component';
 import { TripAddComponent } from './dashboard/trip-add/trip-add.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
-import { MatButtonModule } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Angular Materials
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
-
+import { RouterLinkWithHref } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,9 @@ import { MatCardModule } from '@angular/material/card';
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     // { provide: LocationStrategy, useClass: HashLocationStrategy }

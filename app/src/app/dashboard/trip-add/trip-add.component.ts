@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-trip-add',
@@ -7,7 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TripAddComponent implements OnInit {
 
-  constructor() { }
+  addTripForm = this.fb.group({
+    label: ['', Validators.required],
+    departure: ['', Validators.required],
+    arrival: ['', Validators.required],
+    isReturnTrip: ['']
+  });
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
