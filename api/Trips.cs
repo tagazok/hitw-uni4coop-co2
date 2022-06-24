@@ -124,7 +124,9 @@ namespace HITW.Function
                 return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
             }
 
-            return new OkObjectResult(_dbContext.Trips.Where(x => x.UserId == user.Id).Select(x => new
+            return new OkObjectResult(_dbContext.Trips.Where(x => x.UserId == user.Id)
+                .OrderByDescending(x => x.Id)
+                .Select(x => new
             {
                 label = x.Label,
                 id = x.Id,

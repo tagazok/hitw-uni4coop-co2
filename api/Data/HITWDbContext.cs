@@ -17,11 +17,20 @@ namespace api.Data
         {
         }
 
+        public virtual DbSet<History> Histories { get; set; }
         public virtual DbSet<Trip> Trips { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<History>(entity =>
+            {
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Histories)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_Histories_User");
+            });
+
             modelBuilder.Entity<Trip>(entity =>
             {
                 entity.HasOne(d => d.User)
