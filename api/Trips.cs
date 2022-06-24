@@ -12,9 +12,32 @@ using System.Linq;
 using System.Security.Claims;
 using System.Net;
 using api.Data.Models;
+using Flurl.Http;
+using Flurl;
+using System;
 
 namespace HITW.Function
 {
+    public class ClimatiqResp
+    {
+        [JsonProperty("co2e")]
+        public double Co2e { get; set; }
+    }
+    public class ClimatiqReq
+    {
+        [JsonProperty("from")]
+        public string From { get; set; }
+
+        [JsonProperty("to")]
+        public string To { get; set; }
+
+        [JsonProperty("passengers")]
+        public int Passengers { get; set; }
+
+        [JsonProperty("class")]
+        public string Cl { get; set; }
+    }
+
     public class Trips
     {
         private readonly HITWDbContext _dbContext;
@@ -28,6 +51,8 @@ namespace HITW.Function
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "Trips")] HttpRequest req,
             ILogger log)
         {
+            var apiKey = Environment.GetEnvironmentVariable("ClimatiqApiKey");
+
             var u = StaticWebAppAuth.Parse(req);
             var externalId = u.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             var user = _dbContext.Users.Where(x => x.ExternalId == externalId).SingleOrDefault();
@@ -35,9 +60,19 @@ namespace HITW.Function
             {
                 return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
             }
-        
+
             var body = JsonConvert.DeserializeObject<Trip>(await new StreamReader(req.Body).ReadToEndAsync());
-        
+
+            var resp = await "https://beta3.api.climatiq.io/travel/flights"
+                .WithOAuthBearerToken(apiKey)
+                .PostJsonAsync(new ClimatiqReq
+                {
+                    From =  body.Departure,
+                    To = body.Arrival,
+                    Passengers = 1,
+                    Cl = "economy"
+                }).ReceiveJson<ClimatiqResp>();
+
             var trip = new Trip
             {
                 Label = body.Label,
@@ -45,11 +80,12 @@ namespace HITW.Function
                 Arrival = body.Arrival,
                 IsRoundTrip = body.IsRoundTrip,
                 UserId = user.Id,
+                Co2Kg = (int)Math.Round(resp.Co2e),
             };
 
             _dbContext.Trips.Add(trip);
             _dbContext.SaveChanges();
-        
+
             return new OkObjectResult(_dbContext.Trips.Where(x => x.UserId == user.Id).Select(x => new
             {
                 label = x.Label,
@@ -57,7 +93,7 @@ namespace HITW.Function
                 co2 = x.Co2Kg,
                 departure = x.Departure,
                 arrival = x.Arrival,
-                percentage = 0,
+                percentage = new Random().Next(0, 100),
                 isRoundTrip = x.IsRoundTrip,
             }).SingleOrDefault());
         }
@@ -70,7 +106,7 @@ namespace HITW.Function
             var u = StaticWebAppAuth.Parse(req);
             var externalId = u.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             var user = _dbContext.Users.Where(x => x.ExternalId == externalId).SingleOrDefault();
-            
+
             if (user is null)
             {
                 return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
