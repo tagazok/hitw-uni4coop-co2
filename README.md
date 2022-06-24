@@ -41,7 +41,15 @@ We therefore consider the distance one would do by car, estimate the carbon foot
 > une voiture neuve, en 2015, émet 110 grammes de CO2 par kilomètre
 So for this ride, the carbon footprint would be 20 * 110 = 2.2kg. We then consider 67% of this amount so 2.2 * 0.67 = 1.5kg of CO2 saved. 
 
-3. Taking a shower instead of a bath would save 1.1kg of CO2
+3. *Taking a shower instead of a bath would save 1.1kg of CO2.*
+This estimation comes from this [website](https://www.m-habitat.fr/plomberie-et-eau/consommation-d-eau/quelle-est-la-consommation-en-eau-d-une-douche-902_A) where they state that:
+> une douche consomme de 40 à 60 litres alors qu’un bain de 120 à 200 litres.
+
+We rounded estimations for showers and bath at 50L of water for a shower and 150L of water for a bath. 
+We also found on this [website](https://wint.ai/the-carbon-footprint-of-water/#:~:text=The%20energy%20requirement%2C%20combined%20with,the%20%E2%80%9Crespect%E2%80%9D%20it%20deserves.) that :
+> on average, every cubic meter of water consumed generates 23lb (or 10.6Kg) of carbon emissions.
+
+
 4. *Reuse platic bag instead of buying one saves 200g CO2.*
 
 This estimation comes from [This article](https://timeforchange.org/plastic-bags-and-plastic-bottles-co2-emissions-during-their-lifetime/) stating that:
