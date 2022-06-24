@@ -7,7 +7,7 @@ import { TripInfoComponent } from './dashboard/trip-info/trip-info.component';
 const routes: Routes = [
   { path: 'dashboard', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard/trip/:id', component: TripInfoComponent },
+  { path: 'dashboard/trips/:id', component: TripInfoComponent },
 ];
 
 @NgModule({
