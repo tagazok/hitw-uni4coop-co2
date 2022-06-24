@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLinkWithHref } from '@angular/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { TripInfoComponent } from './trip-info/trip-info.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     HomeComponent,
     TripListComponent,
     TripAddComponent,
+    TripInfoComponent,
   ],
   imports: [
     BrowserModule,
