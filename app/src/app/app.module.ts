@@ -19,6 +19,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLinkWithHref } from '@angular/router';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TripComponent } from './dashboard/trip/trip.component';
 
 
 @NgModule({
@@ -28,6 +32,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     HomeComponent,
     TripListComponent,
     TripAddComponent,
+    TripComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +45,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     FormsModule,
     ReactiveFormsModule,
     MatProgressBarModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatCheckboxModule
   ],
   providers: [
     // { provide: LocationStrategy, useClass: HashLocationStrategy }
