@@ -37,13 +37,16 @@ This estimation comes from this [article](https://youmatter.world/fr/regime-alim
 
 This estimation comes from [this article](https://www.bloomberg.com/news/articles/2021-03-31/switching-from-cars-to-bikes-cuts-commuting-emissions-by-67#xj4y7vzkg) stating:
 > Switching From Cars to Bikes Cuts Commuting Emissions by 67%
+We therefore consider the distance one would do by car, estimate the carbon footprint of this ride and consider 67% of this amount as carbon saved. For instance, someone took public transportation for 20km. According to this [website](https://www.liberation.fr/checknews/2018/12/21/un-trajet-en-avion-est-il-vraiment-plus-polluant-qu-un-trajet-en-voiture-ou-en-train_1679761/)
+> une voiture neuve, en 2015, émet 110 grammes de CO2 par kilomètre
+So for this ride, the carbon footprint would be 20 * 110 = 2.2kg. We then consider 67% of this amount so 2.2 * 0.67 = 1.5kg of CO2 saved. 
 
 3. Taking a shower instead of a bath would save 1.1kg of CO2
 4. *Reuse platic bag instead of buying one saves 200g CO2.*
 
 This estimation comes from [This article](https://timeforchange.org/plastic-bags-and-plastic-bottles-co2-emissions-during-their-lifetime/) stating that:
 > For 5 plastic bags you get 1 kg of CO2
-
+Considering 1 bag, we get 1000/5 = 200g/bag.
 
 5. *Recycling everything that can be recycled at your home would saves 2kg of CO2.*
 
