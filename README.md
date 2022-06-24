@@ -25,3 +25,15 @@ npm install
 cd ..
 swa start
 ```
+
+# Calculation methods
+Estimated amount of CO2 saved are extrapolated from different sources.
+
+1. Going vegetarian for one day would save 3 kg of CO2
+2. Taking public transport or bicycle would save 70% of your carbon footprint by car for the same distance
+3. Taking a shower instead of a bath would save 1.1 kg of CO2
+4. Reuse platic bag instead of buying one saves 200g CO2
+5. Recycling everything that can be recycled at your home would saves 2kg of CO2
+6. Turn off all electrical devices (no battery saver) that you don't use and unplug 
+everything that is charged saves 2 kg of CO2
+7. Turn down your thermostats by one degree saves 1 kg CO2
