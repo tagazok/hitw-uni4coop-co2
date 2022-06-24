@@ -1,1 +1,6 @@
-<p>trip-list works!</p>
+<mat-card *ngFor="let trip of trips">
+  <mat-card-title>{{ trip.label }}</mat-card-title>
+  <mat-card-subtitle
+    >{{ trip.departure }} - {{ trip.arrival }}</mat-card-subtitle
+  >
+</mat-card>

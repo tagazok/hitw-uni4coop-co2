@@ -14,6 +14,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { MatButtonModule } from '@angular/material/button';
 
+// Angular Materials
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { MatButtonModule } from '@angular/material/button';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
   ],
   providers: [
     // { provide: LocationStrategy, useClass: HashLocationStrategy }
