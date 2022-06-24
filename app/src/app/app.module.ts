@@ -23,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TripInfoComponent } from './dashboard/trip-info/trip-info.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { TripInfoComponent } from './dashboard/trip-info/trip-info.component';
     MatProgressBarModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule
   ],
   providers: [
     // { provide: LocationStrategy, useClass: HashLocationStrategy }
