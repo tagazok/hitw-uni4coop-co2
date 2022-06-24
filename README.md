@@ -33,10 +33,24 @@ Estimated amount of CO2 saved are extrapolated from different sources.
 
 This estimation comes from this [article](https://youmatter.world/fr/regime-alimentaire-ecologique-vegetarien-omnivore/#:~:text=Les%20r%C3%A9gimes%20v%C3%A9g%C3%A9tariens%20et%20vegans,plus%20que%20le%20r%C3%A9gime%20vegan.) where they state that footprint by diet type are on average about 3.3t for meat lovers and 1.7t for vegeterian per year. This means that the difference between the 2 diets is about 1.6t per year. Considering 365 days a year, we estimated the difference that a meat lover would consume 1600/365 = 4.38kg per day that we rounded to 4kg for simplicity.
 
-2. Taking public transport or bicycle would save 70% of your carbon footprint by car for the same distance
+2. *Taking public transport or bicycle would save 67% of your carbon footprint by car for the same distance.*
+
+This estimation comes from [this article](https://www.bloomberg.com/news/articles/2021-03-31/switching-from-cars-to-bikes-cuts-commuting-emissions-by-67#xj4y7vzkg) stating:
+> Switching From Cars to Bikes Cuts Commuting Emissions by 67%
+
 3. Taking a shower instead of a bath would save 1.1kg of CO2
-4. Reuse platic bag instead of buying one saves 200g CO2
-5. Recycling everything that can be recycled at your home would saves 2kg of CO2
+4. *Reuse platic bag instead of buying one saves 200g CO2.*
+
+This estimation comes from [This article](https://timeforchange.org/plastic-bags-and-plastic-bottles-co2-emissions-during-their-lifetime/) stating that:
+> For 5 plastic bags you get 1 kg of CO2
+
+
+5. *Recycling everything that can be recycled at your home would saves 2kg of CO2.*
+
+This estimation comes from [this article](https://changeit.app/blog/recycle-matters/) stating: 
+> You could save up to 61kg of carbon emissions per month by recycling as much as possible.
+Considering approximatively 30 days a month, 61/30 = 2kg/day.
+
 6. Turn off all electrical devices (no battery saver) that you don't use and unplug 
 everything that is charged saves 2kg of CO2
 7. *Turn down your thermostats by one degree saves 1kg CO2.* 
