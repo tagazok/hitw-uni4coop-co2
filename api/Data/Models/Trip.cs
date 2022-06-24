@@ -18,6 +18,7 @@ namespace api.Data.Models
         public string Arrival { get; set; }
         public bool? IsRoundTrip { get; set; }
         public int? UserId { get; set; }
+        public int? Co2Kg { get; set; }
 
         [ForeignKey("UserId")]
         [InverseProperty("Trips")]
