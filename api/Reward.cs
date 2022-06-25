@@ -32,6 +32,26 @@ namespace HITW.Function
             _dbContext = dbContext;
         }
 
+        [FunctionName("RewardUsed")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "rewards/available/{id}")] HttpRequest req,
+            ILogger log, int id)
+        {
+            var allowedRewardType = new[] { "VEGGIE", "TRANSPORTATION", "SHOWER", "PLASTIC", "COMPUTER", "THERMOSTAT", "RECYCLING" };
+            var rewardAlreadyUsed = (from r in _dbContext.Histories
+                                    where r.TripId == id
+                                    where r.Date != null
+                                    where r.Date.Value.Date == DateTime.Today
+                                    select r.Code).Distinct().ToList();
+
+            var available = allowedRewardType.Except(rewardAlreadyUsed).ToList();
+            available.Add("DONATION");
+            available.Add("TRANSPORTATION");
+
+            return new OkObjectResult(available);
+        }
+
+
         [FunctionName("Reward")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "rewards")] HttpRequest req,
@@ -46,7 +66,6 @@ namespace HITW.Function
             var alreadyWonToday = from r in _dbContext.Histories
                                   where r.UserId == user.Id
                                   where r.TripId == rreq.TripId
-                                  where r.Code == rreq.Code
                                   where r.Date != null
                                   where r.Date.Value.Date == DateTime.Today
                                   select r;
