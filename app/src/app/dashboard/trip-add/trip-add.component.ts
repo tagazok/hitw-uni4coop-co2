@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -27,7 +28,8 @@ export class TripAddComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private tripService: TripService
+    private tripService: TripService,
+    private router: Router
   ) { }
 
   onSubmit() {
@@ -41,8 +43,13 @@ export class TripAddComponent implements OnInit {
     };
 
 
-    this.tripService.addTrip(trip).subscribe((trip: Trip) => {
-      console.log(trip);
+    this.tripService.addTrip(trip).subscribe({
+      next: (trip: Trip) => {
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => {
+        this.router.navigate(['/dashboard']);
+      }
     });
   }
 

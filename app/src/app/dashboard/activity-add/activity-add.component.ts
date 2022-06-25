@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Code } from 'src/app/models/reward';
 import { RewardService } from 'src/app/services/reward.service';
 import { Reward } from 'src/app/models/reward';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +17,8 @@ export class ActivityAddComponent implements OnInit {
 
   constructor(
     private rewardService: RewardService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +31,7 @@ export class ActivityAddComponent implements OnInit {
       case Code.PLASTIC:
       case Code.COMPUTER:
       case Code.THERMOSTAT:
+      case Code.RECYCLING:
         let reward: Reward = {
           code: code,
           tripId: this.tripId!,
@@ -37,7 +39,7 @@ export class ActivityAddComponent implements OnInit {
         }
         this.rewardService.addReward(reward).subscribe(
           (receivedReward) => {
-            console.log(receivedReward)
+            this.router.navigate(['/dashboard/trips/' + this.tripId])
           }
         )
         break;

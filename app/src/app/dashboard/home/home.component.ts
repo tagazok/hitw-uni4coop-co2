@@ -33,11 +33,10 @@ export class HomeComponent implements OnInit {
         this.total = dash.totalCo2;
         trips.forEach(
           (trip) => {
-            this.currentStatus += trip.percentage;
+            this.currentStatus += (trip.co2 * trip.percentage);
             this.nbTrips++;
           }
         )
-        this.currentStatus = this.currentStatus / trips.length;
       }
     )
   }
