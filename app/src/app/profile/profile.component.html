@@ -9,7 +9,13 @@
             </div>
         </div>
         <div class="infos flex flex-direction-column flex-grow justify-content-space-around padding-left-2">
-            <div class="username">{{userProfile?.name}}</div>
+            <div class="flex flex-direction-row justify-content-space-between">
+                <div class="username flex align-items-center">{{userProfile?.name}}</div>
+
+                <a mat-button>
+                    <mat-icon>share</mat-icon>
+                </a>
+            </div>
 
             <div>
                 <div *ngIf="userProfile?.totalFunded > 0">

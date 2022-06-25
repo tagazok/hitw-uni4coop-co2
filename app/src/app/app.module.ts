@@ -33,6 +33,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ActivityAddTransportModalComponent } from './dashboard/activity-add-transport-modal/activity-add-transport-modal.component';
 import { MatBottomSheetModule, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 import { BadgeDetailsComponent } from './badge-details/badge-details.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { BadgeDetailsComponent } from './badge-details/badge-details.component';
     MatIconModule,
     MatMenuModule,
     MatDialogModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatToolbarModule
   ],
   providers: [
     // { provide: LocationStrategy, useClass: HashLocationStrategy }

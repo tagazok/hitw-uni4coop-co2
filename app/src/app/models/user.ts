@@ -1,5 +1,5 @@
 export interface User {
-    userUI: string;
+    userId: string;
     userRoles: Array<string>;
     claims: Array<any>;
     identityProvider: string,

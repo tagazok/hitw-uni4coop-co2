@@ -16,14 +16,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.postUser();
     this.getTrips();
-  }
-
-  postUser() {
-    this.tripService.login().subscribe(() => {
-      console.log("User sent!");
-    });
   }
 
   getTrips(): void {
