@@ -16,6 +16,7 @@ using Flurl.Http;
 using Flurl;
 using System;
 using System.Net.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace HITW.Function
 {
@@ -107,6 +108,7 @@ namespace HITW.Function
                 arrival = x.Arrival,
                 percentage = new Random().Next(0, 100),
                 isRoundTrip = x.IsRoundTrip,
+                rewards = Array.Empty<string>(),
             }).SingleOrDefault());
         }
 
@@ -123,7 +125,9 @@ namespace HITW.Function
             {
                 return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
             }
-            var trip = _dbContext.Trips.Where(x => x.Id == id && x.UserId == user.Id).SingleOrDefault();
+            var trip = _dbContext.Trips.Where(x => x.Id == id && x.UserId == user.Id)
+                .Include(x => x.Histories)
+                .SingleOrDefault();
             if (trip is null)
             {
                 return new StatusCodeResult((int)HttpStatusCode.NotFound);
@@ -137,6 +141,14 @@ namespace HITW.Function
                 arrival = trip.Arrival,
                 percentage = new Random().Next(0, 100),
                 isRoundTrip = trip.IsRoundTrip,
+                rewards = trip.Histories.OrderByDescending(x => x.Date).Select(x => new
+                {
+                    code = x.Code,
+                    creditInKgOfCo2 = x.CreditInKgOfCo2,
+                    date = x.Date,
+                    tripId = x.TripId,
+                    rewardId = x.Id,
+                }).ToList(),
             });
         }
 
