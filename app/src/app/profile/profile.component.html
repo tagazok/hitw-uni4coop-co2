@@ -1,7 +1,9 @@
 <div class="padding-1">
     <div class="profile margin-bottom-2 flex flex-direction-row">
         <div class="trophy flex flex-direction-column">
-            <img src="/assets/images/badges/done.png" [ngClass]="{'disabled': userProfile?.totalFunded < 1}" />
+            <img src="/assets/images/badges/done.png" [ngClass]="{'disabled': userProfile?.totalFunded < 1}"
+                *ngIf=" userProfile?.totalFunded > 1" />
+            <img src="/assets/images/badges/sick.png" *ngIf=" userProfile?.totalFunded <= 1" />
             <div class="value text-center">
                 {{userProfile?.totalFunded}}
             </div>
@@ -11,11 +13,14 @@
 
             <div>
                 <div *ngIf="userProfile?.totalFunded > 0">
-                    INSPIRING!</div>
+                    INSPIRING!<br />
+                    {{userProfile?.name}}, have compensated {{userProfile?.totalFunded}} trips out of
+                    {{userProfile?.totalTrip}}.
+                </div>
                 <div *ngIf="userProfile?.totalFunded == 0">
-                    EARTH NEEDS YOU!</div>
-                {{userProfile?.name}}, have compensated {{userProfile?.totalFunded}} trips out of
-                {{userProfile?.totalTrip}}.
+                    EARTH NEEDS HELP!<br />
+
+                </div>
             </div>
         </div>
     </div>

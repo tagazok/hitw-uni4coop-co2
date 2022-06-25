@@ -1,6 +1,20 @@
 <div class="padding-1 flex flex-direction-column">
     <img src="/assets/images/badges/badge-{{data.badge}}.png" />
-    <div class="padding-top-1">
+    <div class="padding-top-1" *ngIf="data.badge == 'transportation'">
         This badge means you have used public transportation instead of your car for at least 1000km
+    </div>
+    <div class="padding-top-1" *ngIf="data.badge == 'computer'">
+    </div>
+    <div class="padding-top-1" *ngIf="data.badge == 'veggie'">
+    </div>
+    <div class="padding-top-1" *ngIf="data.badge == 'plastic'">
+    </div>
+    <div class="padding-top-1" *ngIf="data.badge == 'recycling'">
+    </div>
+    <div class="padding-top-1" *ngIf="data.badge == 'thermostat'">
+    </div>
+    <div class="padding-top-1" *ngIf="data.badge == 'shower'">
+    </div>
+    <div class="padding-top-1" *ngIf="data.badge == 'donation'">
     </div>
 </div>
