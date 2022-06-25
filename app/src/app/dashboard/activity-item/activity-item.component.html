@@ -13,14 +13,17 @@
         <div>
             <span *ngIf="reward?.code === 'SHOWER'">I took a shower instead of a bath today.</span>
             <span *ngIf="reward?.code === 'VEGGIE'">I went veggie today.</span>
-            <span *ngIf="reward?.code === 'TRANSPORTATION'">I used public transportation today instead of my car.</span>
+            <span *ngIf="reward?.code === 'TRANSPORTATION'">I used public transportation for
+                {{getMetadata(reward?.data)?.distance}}km
+                today instead of my car.</span>
             <span *ngIf="reward?.code === 'PLASTIC'">I brought my own bag at the grocery store today.</span>
             <span *ngIf="reward?.code === 'RECYCLING'">I recycled all my waste today.</span>
             <span *ngIf="reward?.code === 'COMPUTER'">I turned of my computer instead of using battery saving mode
                 today.</span>
             <span *ngIf="reward?.code === 'THERMOSTAT'">I turned my thermostat down by 1°C lower than usual
                 today.</span>
-            <span *ngIf="reward?.code === 'DONATION'">I donated money to plant trees today.</span>
+            <span *ngIf="reward?.code === 'DONATION'">I donated {{getMetadata(reward?.data)?.amount}}€ to plant trees
+                today.</span>
         </div>
         <small class="date">
             {{reward?.date | date}}

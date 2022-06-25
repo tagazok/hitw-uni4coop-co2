@@ -14,4 +14,7 @@ export class ActivityItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getMetadata(data: string | undefined) {
+    return JSON.parse(data || "");
+  }
 }

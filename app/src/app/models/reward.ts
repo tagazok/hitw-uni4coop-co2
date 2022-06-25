@@ -4,7 +4,8 @@ export interface Reward {
   amount: number | undefined;
   tripId: number;
   date?: string;
-  creditInKgOfCo2?: number
+  creditInKgOfCo2?: number;
+  data?: string
 }
 export enum Code {
   VEGGIE = "VEGGIE",
