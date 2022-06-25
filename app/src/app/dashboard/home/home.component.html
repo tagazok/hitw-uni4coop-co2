@@ -32,10 +32,13 @@
   <mat-progress-bar mode="determinate" [value]="(currentStatus / total) * 100"></mat-progress-bar>
 </div>
 <app-trip-list></app-trip-list>
-<button mat-fab color="primary" aria-label="Add new trip" id="btn-add" [matMenuTriggerFor]="menu">
+<a mat-fab color="primary" aria-label="Add new trip" id="btn-add" routerLink="/dashboard/trips/add">
+  <mat-icon>add</mat-icon>
+</a>
+<!-- <button mat-fab color="primary" aria-label="Add new trip" id="btn-add" [matMenuTriggerFor]="menu">
   <mat-icon>add</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
   <a mat-menu-item routerLink="/dashboard/trips/add">Add a travel</a>
   <a mat-menu-item routerLink="/dashboard/trips/add">Add an activity</a>
-</mat-menu>
+</mat-menu> -->
