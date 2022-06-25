@@ -46,11 +46,12 @@ For instance, someone took public transportation for 20km. According to this [we
 So for this ride, the carbon footprint would be $20 \times 110 = 2.2kg$. We then consider 67% of this amount so $2.2 \times 0.67 = 1.5kg$ of CO2 saved. 
 
 3. *Taking a shower instead of a bath would save 1.1kg of CO2.*
+
 This estimation comes from this [website](https://www.m-habitat.fr/plomberie-et-eau/consommation-d-eau/quelle-est-la-consommation-en-eau-d-une-douche-902_A) where they state that:
 > une douche consomme de 40 à 60 litres alors qu’un bain de 120 à 200 litres.
 
 We rounded estimations for showers and bath at 50L of water for a shower and 150L of water for a bath. 
-We also found on this [website](https://wint.ai/the-carbon-footprint-of-water/#:~:text=The%20energy%20requirement%2C%20combined%20with,the%20%E2%80%9Crespect%E2%80%9D%20it%20deserves.) that :
+We also found on this [website](https://wint.ai/the-carbon-footprint-of-water/#:~:text=The%20energy%20requirement%2C%20combined%20with,the%20%E2%80%9Crespect%E2%80%9D%20it%20deserves.) that:
 > on average, every cubic meter of water consumed generates 23lb (or 10.6Kg) of carbon emissions.
 
 This means that 1000L of water consumes 10.6kg of CO2, therefore an average shower consumes $$\frac{50}{1000} \times 10600 = 530g$$ of CO2 and a bath $$\frac{150}{1000} \times 10600 = 1590g$$
@@ -61,12 +62,14 @@ This means that 1000L of water consumes 10.6kg of CO2, therefore an average show
 
 This estimation comes from [this article](https://timeforchange.org/plastic-bags-and-plastic-bottles-co2-emissions-during-their-lifetime/) stating that:
 > For 5 plastic bags you get 1 kg of CO2
+
 Considering 1 bag, we get $\frac{1000}{5} = 200g/bag$.
 
 5. *Recycling everything that can be recycled at your home would saves 2kg of CO2.*
 
 This estimation comes from [this article](https://changeit.app/blog/recycle-matters/) stating: 
 > You could save up to 61kg of carbon emissions per month by recycling as much as possible.
+
 Considering approximatively 30 days a month, $\frac{61}{30} = 2kg/day$.
 
 
