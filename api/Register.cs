@@ -29,13 +29,20 @@ namespace HITW.Function
             var u = StaticWebAppAuth.Parse(req);
 
             var id = u.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var name = u.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
 
             if (_dbContext.Users.Where(x => x.ExternalId == id).FirstOrDefault() is null)
             {
                 _dbContext.Users.Add(new User
                 {
+                    Firtsname = name,
                     ExternalId = id,
                 });
+            }
+            else
+            {
+                var maybeUser = _dbContext.Users.Where(x => x.ExternalId == id).FirstOrDefault();
+                maybeUser.Firtsname = name;
             }
 
             _dbContext.SaveChanges();
