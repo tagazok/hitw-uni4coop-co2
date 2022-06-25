@@ -7,7 +7,7 @@
                 {{userProfile?.totalFunded}}
             </div>
         </div>
-        <div class="infos flex flex-direction-column flex-grow justify-content-space-around padding-left-2">
+        <div class="infos flex flex-direction-column flex-grow justify-content-space-around">
             <div class="flex flex-direction-row justify-content-space-between">
                 <div class="username flex align-items-center">{{userProfile?.name}}</div>
 
@@ -15,7 +15,8 @@
                     <mat-icon>share</mat-icon>
                 </a>
                 <mat-menu #shareMenu="matMenu">
-                    <a mat-menu-item>Linkedin</a>
+                    <a mat-menu-item target="_blank"
+                        href="https://www.linkedin.com/shareArticle?mini=true&url={{profileUrl}}&title=Help%20me%20save%20the%20planet%20by%20reducing%20our%20carbon%20footprint&summary=Join%20me%20on%20HappyPlanet&source=HappyPlanet">Linkedin</a>
                     <a mat-menu-item target="_blank"
                         href="https://twitter.com/intent/tweet?text=Help me save the planet by reducing our carbon footprint with %23HappyPlanet%20{{profileUrl}}">Twitter</a>
 
