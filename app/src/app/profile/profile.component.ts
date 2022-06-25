@@ -11,6 +11,7 @@ import { ProfilService } from '../services/profil.service';
 })
 export class ProfileComponent implements OnInit {
   userProfile: any;
+  profileUrl: string = window.location.href;
 
   constructor(
     private profileService: ProfilService,
