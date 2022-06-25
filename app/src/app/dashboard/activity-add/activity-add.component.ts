@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivityAddTransportModalComponent } from '../activity-add-transport-modal/activity-add-transport-modal.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivityAddAmountModalComponent } from '../activity-add-amount-modal/activity-add-amount-modal.component';
 
 
 @Component({
@@ -41,6 +42,7 @@ export class ActivityAddComponent implements OnInit {
           code: code,
           tripId: this.tripId!,
           distance: undefined,
+          amount: undefined,
         }
         this.rewardService.addReward(reward).subscribe({
           next:
@@ -54,7 +56,8 @@ export class ActivityAddComponent implements OnInit {
         });
         break;
       case Code.TRANSPORTATION:
-        this.dialog.open(ActivityAddTransportModalComponent, {
+      case Code.DONATION:
+        this.dialog.open(ActivityAddAmountModalComponent, {
           data: {
             tripId: this.tripId!
           }

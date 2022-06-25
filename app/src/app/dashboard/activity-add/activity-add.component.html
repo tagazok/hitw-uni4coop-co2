@@ -93,5 +93,14 @@
         <p>Decrease Temp.</p>
       </div>
     </mat-card>
+    <mat-card class="activity-row-card" (click)="sendReward(code.DONATION)">
+      <div
+        class="flex flex-direction-column align-items-center justify-content-center"
+        (click)="sendReward(code.DONATION)"
+      >
+        <mat-icon>money</mat-icon>
+        <p>Donate</p>
+      </div>
+    </mat-card>
   </div>
 </div>

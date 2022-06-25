@@ -1,6 +1,7 @@
 export interface Reward {
   code: Code;
   distance: number | undefined;
+  amount: number | undefined;
   tripId: number;
   date?: string;
   creditInKgOfCo2?: number

@@ -35,6 +35,7 @@ import { MatBottomSheetModule, MAT_BOTTOM_SHEET_DATA } from '@angular/material/b
 import { BadgeDetailsComponent } from './badge-details/badge-details.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ActivityAddAmountModalComponent } from './dashboard/activity-add-amount-modal/activity-add-amount-modal.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ActivityItemComponent,
     ProfileComponent,
     ActivityAddTransportModalComponent,
-    BadgeDetailsComponent
+    BadgeDetailsComponent,
+    ActivityAddAmountModalComponent
   ],
   imports: [
     BrowserModule,

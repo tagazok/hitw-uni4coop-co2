@@ -1,0 +1,23 @@
+<form
+  [formGroup]="formAmount"
+  (ngSubmit)="sendActivity()"
+  class="flex flex-direction-column"
+>
+  <mat-form-field>
+    <mat-label>Amount in € to donate:</mat-label>
+    <input
+      formControlName="amount"
+      type="number"
+      matInput
+      placeholder="Ex. 25"
+    />
+  </mat-form-field>
+  <button
+    mat-flat-button
+    color="primary"
+    type="submit"
+    [disabled]="!formAmount.valid"
+  >
+    Add
+  </button>
+</form>
