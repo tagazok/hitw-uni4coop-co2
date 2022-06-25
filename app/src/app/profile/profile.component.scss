@@ -10,6 +10,10 @@
 
     .username {
         font-size: 2em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: capitalize;
     }
 }
 
@@ -26,5 +30,4 @@ img {
         max-width: 200px;
         padding-bottom: 1em;
     }
-
 }

@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
     const userId = this.activatedRoute.snapshot.params['userId']
     this.profileService.getUserProfile(userId).subscribe((data) => {
       this.userProfile = data;
+      this.userProfile.name = this.userProfile.name.split('@')[0].replace('.', ' ');
     });
   }
 
