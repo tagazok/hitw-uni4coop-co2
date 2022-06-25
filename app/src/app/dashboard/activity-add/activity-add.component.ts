@@ -48,14 +48,20 @@ export class ActivityAddComponent implements OnInit {
           next:
             (receivedReward) => {
               this.router.navigate(['/dashboard/trips/' + this.tripId]);
-              this._snackBar.open('your reward has been succesfully claimed');
+              this._snackBar.open('your reward has been succesfully claimed', 'ok');
             }
           , error: (err) => {
-            this._snackBar.open(err.error);
+            this._snackBar.open(err.error, 'ok');
           }
         });
         break;
       case Code.TRANSPORTATION:
+        this.dialog.open(ActivityAddTransportModalComponent, {
+          data: {
+            tripId: this.tripId!
+          }
+        });
+        break;
       case Code.DONATION:
         this.dialog.open(ActivityAddAmountModalComponent, {
           data: {
