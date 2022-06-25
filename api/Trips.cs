@@ -154,20 +154,24 @@ namespace HITW.Function
                 return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
             }
 
-            return new OkObjectResult(_dbContext.Trips.Where(x => x.UserId == user.Id)
-                .OrderByDescending(x => x.Id)
-                .Select(x => new
+            return new OkObjectResult(new
             {
-                label = x.Label,
-                id = x.Id,
-                co2 = x.Co2Kg,
-                departure = x.Departure,
-                arrival = x.Arrival,
-                percentage = new Random().Next(0, 100),
-                isRoundTrip = x.IsRoundTrip,
-            }).ToList());
+                totalCo2 = _dbContext.Trips.Where(x => x.UserId == user.Id).Sum(x => x.Co2Kg),
+                trips = _dbContext.Trips.Where(x => x.UserId == user.Id)
+                        .OrderByDescending(x => x.Id)
+                        .Select(x => new
+                        {
+                            label = x.Label,
+                            id = x.Id,
+                            co2 = x.Co2Kg,
+                            departure = x.Departure,
+                            arrival = x.Arrival,
+                            percentage = new Random().Next(0, 100),
+                            isRoundTrip = x.IsRoundTrip,
+                        }).ToList()
+            });
         }
-        
+
         [FunctionName("TripDelete")]
         public async Task<IActionResult> TripDelete(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "Trips/{id}")] HttpRequest req,
@@ -180,13 +184,13 @@ namespace HITW.Function
             {
                 return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
             }
-            
+
             var trip = _dbContext.Trips.Where(x => x.Id == id && x.UserId == user.Id).SingleOrDefault();
             if (trip is null)
             {
                 return new StatusCodeResult((int)HttpStatusCode.NotFound);
             }
-            
+
             _dbContext.Trips.Remove(trip);
             await _dbContext.SaveChangesAsync();
             return new OkResult();
