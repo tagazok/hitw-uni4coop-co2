@@ -38,7 +38,7 @@ This estimation comes from this [article](https://youmatter.world/fr/regime-alim
 This estimation comes from [this article](https://www.bloomberg.com/news/articles/2021-03-31/switching-from-cars-to-bikes-cuts-commuting-emissions-by-67#xj4y7vzkg) stating:
 > Switching From Cars to Bikes Cuts Commuting Emissions by 67%
 
-We therefore consider the distance one would do by car, estimate the carbon footprint of this ride and consider 67% of this amount as carbon saved. We equally considered bycicle, bus, train, metro as those are pretty similar when taking into account the number of passenger.
+We therefore consider the distance one would do by car, estimate the carbon footprint of this ride and consider 67% of this amount as carbon saved. We equally considered bicycle, bus, train, metro as those are pretty similar when dividing the impact by the number of passenger.
 
 For instance, someone took public transportation for 20km. According to this [website](https://www.liberation.fr/checknews/2018/12/21/un-trajet-en-avion-est-il-vraiment-plus-polluant-qu-un-trajet-en-voiture-ou-en-train_1679761/)
 > une voiture neuve, en 2015, émet 110 grammes de CO2 par kilomètre
