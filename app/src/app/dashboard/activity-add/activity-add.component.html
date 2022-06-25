@@ -15,8 +15,11 @@
     class="flex flex-direction-row align-items-center justify-content-space-around activity-row margin-2"
   >
     <mat-card class="activity-row-card" (click)="sendReward(code.VEGGIE)">
-      <div class="flex align-items-center justify-content-center">
+      <div
+        class="flex flex-direction-column align-items-center justify-content-center"
+      >
         <mat-icon>no_food</mat-icon>
+        <p>Veggie Day</p>
       </div>
     </mat-card>
 
@@ -24,52 +27,63 @@
       class="activity-row-card"
       (click)="sendReward(code.TRANSPORTATION)"
     >
-      <div class="flex align-items-center justify-content-center">
+      <div
+        class="flex flex-direction-column align-items-center justify-content-center"
+      >
         <mat-icon>directions_bus</mat-icon>
+        <p>Take the bus</p>
       </div>
     </mat-card>
   </div>
   <div
     class="flex flex-direction-row align-items-center justify-content-space-around activity-row margin-2"
   >
-    <mat-card class="activity-row-card" (click)="this.sendReward(code.SHOWER)">
-      <div class="flex align-items-center justify-content-center">
+    <mat-card class="activity-row-card" (click)="sendReward(code.SHOWER)">
+      <div
+        class="flex flex-direction-column align-items-center justify-content-center"
+      >
         <mat-icon>shower</mat-icon>
+        <p>Replace bath</p>
       </div>
     </mat-card>
-    <mat-card class="activity-row-card" (click)="this.sendReward(code.PLASTIC)">
-      <div class="flex align-items-center justify-content-center">
+    <mat-card class="activity-row-card" (click)="sendReward(code.PLASTIC)">
+      <div
+        class="flex flex-direction-column align-items-center justify-content-center"
+      >
         <mat-icon>shopping_bag</mat-icon>
+        <p>reusable bag</p>
       </div>
     </mat-card>
   </div>
   <div
     class="flex flex-direction-row align-items-center justify-content-space-around activity-row margin-2"
   >
-    <mat-card class="activity-row-card" (click)="this.sendReward(code.RECYCLING)">
-      <div class="flex align-items-center justify-content-center">
+    <mat-card class="activity-row-card" (click)="sendReward(code.RECYCLING)">
+      <div
+        class="flex flex-direction-column align-items-center justify-content-center"
+      >
         <mat-icon>recycling</mat-icon>
+        <p>Recycle</p>
       </div>
     </mat-card>
-
-    <mat-card
-      class="activity-row-card"
-      (click)="this.sendReward(code.COMPUTER)"
-    >
-      <div class="flex align-items-center justify-content-center">
+    <mat-card class="activity-row-card" (click)="sendReward(code.COMPUTER)">
+      <div
+        class="flex flex-direction-column align-items-center justify-content-center"
+      >
         <mat-icon>power_settings_new</mat-icon>
+        <p>Shut down electronics</p>
       </div>
     </mat-card>
   </div>
   <div
     class="flex flex-direction-row align-items-center justify-content-space-around activity-row margin-2"
   >
-    <mat-card
-      class="activity-row-card"
-      (click)="this.sendReward(code.THERMOSTAT)"
-    >
-      <div class="flex align-items-center justify-content-center">
+    <mat-card class="activity-row-card" (click)="sendReward(code.THERMOSTAT)">
+      <div
+        class="flex flex-direction-column align-items-center justify-content-center"
+      >
         <mat-icon>device_thermostat</mat-icon>
+        <p>Decrease Temp.</p>
       </div>
     </mat-card>
   </div>
