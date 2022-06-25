@@ -27,7 +27,7 @@
         </small>
     </div>
     <div class="credit flex align-items-center flex-direction-column justify-content-center">
-        <div class="creditKg">+ {{reward?.creditInKgOfCo2}}
+        <div class="creditKg">+ {{reward?.creditInKgOfCo2 | number: "1.0-1"}}
         </div>
         <small class="creditKg">
             Kg CO2
