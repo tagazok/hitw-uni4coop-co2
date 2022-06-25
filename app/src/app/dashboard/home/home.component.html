@@ -1,20 +1,34 @@
-<div class="padding-1 padding-top-2 padding-bottom-2" id="header">
+<div class="padding-1 padding-top-2 padding-bottom-2 large" id="header">
   <!-- <h1 class="text-center">TOTAL</h1> -->
   <!-- <div>Vos émissions carbonnes totales:</div> -->
   <div class="flex flex-direcrtion-row">
     <!-- <mat-icon aria-hidden="false">workspace_premium</mat-icon> -->
     <img id="trophy" src="/assets/images/trophy.png" />
     <div class="flex-grow flex flex-direction-column justify-content-center" id="infos">
-      <p>{{ (total / currentStatus) * 100 | number: '1.0-0'}}/{{ total | number: '1.0-0' }} kgs de CO2</p>
-      <p>{{nbTrips}} Trips</p>
-      <!-- <mat-progress-bar mode="determinate" [value]="currentStatus"></mat-progress-bar> -->
+      <!-- <div class="text-center margin-bottom-1">
+        <div class="value">{{nbTrips}}</div>
+        <div class="label">TRIPS</div>
+      </div> -->
+      <!-- <div class="text-center margin-bottom-1">
+        <div class="value">{{ (total / currentStatus) * 100 | number: '1.0-0'}}/{{ total | number: '1.0-0' }}</div>
+        <div class="label">KGS OF CO2</div>
+      </div> -->
+      <div class="text-center margin-bottom-1">
+        <div>
+          <div class="value">{{ (total / currentStatus) * 100 | number: '1.0-0'}}</div>
+          <div class="label">of</div>
+          <div class="value">{{ total | number: '1.0-0' }}</div>
+        </div>
+        <div class="label">KGS OF CO2 compensated</div>
+      </div>
     </div>
-    <div class="spinner">
+    <!-- <div class="spinner">
       <div class="spinner-value">64%</div>
       <mat-progress-spinner color="accent" mode="determinate" value="64">
       </mat-progress-spinner>
-    </div>
+    </div> -->
   </div>
+  <mat-progress-bar mode="determinate" [value]="currentStatus"></mat-progress-bar>
 </div>
 <app-trip-list></app-trip-list>
 <button mat-fab color="primary" aria-label="Add new trip" id="btn-add" [matMenuTriggerFor]="menu">

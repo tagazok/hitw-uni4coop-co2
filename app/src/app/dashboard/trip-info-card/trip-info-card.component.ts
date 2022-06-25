@@ -8,6 +8,7 @@ import { Trip } from 'src/app/models/trip';
 })
 export class TripInfoCardComponent implements OnInit {
   @Input() trip?: Trip;
+  @Input() large: boolean = false;
 
   constructor() { }
 

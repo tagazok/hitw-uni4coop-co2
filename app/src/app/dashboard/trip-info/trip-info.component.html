@@ -12,7 +12,7 @@
 </mat-card> -->
 
 <div *ngIf="this.trip" class="header padding-1 padding-top-2 padding-bottom-2">
-  <app-trip-info-card [trip]="trip"></app-trip-info-card>
+  <app-trip-info-card [trip]="trip" [large]="true"></app-trip-info-card>
 </div>
 
 <div class="tip padding-1 flex justify-content-center" [innerHTML]="randomTip"></div>
