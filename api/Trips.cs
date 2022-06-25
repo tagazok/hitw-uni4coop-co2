@@ -88,6 +88,11 @@ namespace HITW.Function
 
             var resp = JsonConvert.DeserializeObject<ClimatiqResp>(await rawResp.Content.ReadAsStringAsync());
 
+            if (body.IsRoundTrip == true)
+            {
+                resp.Co2e *= 2;
+            }
+
             var trip = new Trip
             {
                 Label = body.Label,
