@@ -51,7 +51,7 @@ namespace HITW.Function
                                   where r.Date.Value.Date == DateTime.Today
                                   select r;
 
-            if (alreadyWonToday.Any())
+            if (alreadyWonToday.Any() && rreq.Code != "DONATION" && rreq.Code != "TRANSPORTATION")
             {
                 return new BadRequestObjectResult("You already won today");
             }
