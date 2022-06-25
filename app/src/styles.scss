@@ -29,4 +29,49 @@ body {
     border-radius: 4px;
 }
 
+
+
+.green {
+    .mat-progress-bar-buffer {
+        background-color: #cdeadc;
+    }
+
+    .mat-progress-bar-fill::after {
+        background-color: #198754;
+    }
+}
+
+.orange {
+    .mat-progress-bar-buffer {
+        background-color: rgb(252, 236, 205);
+    }
+
+    .mat-progress-bar-fill::after {
+        background-color: orange;
+    }
+}
+
+.red {
+    .mat-progress-bar-buffer {
+        background-color: #ffdcdf;
+    }
+
+    .mat-progress-bar-fill::after {
+        background-color: #dc3545;
+    }
+}
+
+.mat-progress-bar {
+    margin-bottom: -1em;
+    width: calc(100% + 2em) !important;
+    margin-left: -1em;
+}
+
+.large .mat-progress-bar {
+    margin-bottom: -2em;
+    height: 8px;
+}
+
+
+
 @import 'flexbox'
