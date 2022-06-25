@@ -15,6 +15,6 @@ public class Startup : FunctionsStartup
         string connectionString = Environment.GetEnvironmentVariable("SqlConnectionString");
         builder.Services.AddDbContext<HITWDbContext>(
             options => SqlServerDbContextOptionsExtensions.UseSqlServer(options, connectionString));
-        
+
     }
 }

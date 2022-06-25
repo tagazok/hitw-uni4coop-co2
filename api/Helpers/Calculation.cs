@@ -36,7 +36,7 @@ public static class Calculation
     {
         return 2.0m;
     }
-    
+
     public static decimal Donation()
     {
         return 1.0m;
