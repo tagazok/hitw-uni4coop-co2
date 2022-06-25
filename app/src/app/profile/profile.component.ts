@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
     private bottomSheet: MatBottomSheet) { }
 
   ngOnInit(): void {
-    const userId = +this.activatedRoute.snapshot.params['userId']
+    const userId = this.activatedRoute.snapshot.params['userId']
     this.profileService.getUserProfile(userId).subscribe((data) => {
       this.userProfile = data;
     });
