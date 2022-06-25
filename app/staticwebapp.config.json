@@ -2,20 +2,33 @@
   "routes": [
     {
       "route": "/api/*",
-      "allowedRoles": ["authenticated"]
+      "allowedRoles": [
+        "authenticated"
+      ]
+    },
+    {
+      "route": "/dashboard",
+      "allowedRoles": [
+        "authenticated"
+      ]
     },
     {
       "route": "/dashboard/*",
-      "allowedRoles": ["authenticated"]
+      "allowedRoles": [
+        "authenticated"
+      ]
     }
   ],
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/images/*.{png,jpg,gif}", "/css/*"]
+    "exclude": [
+      "/images/*.{png,jpg,gif}",
+      "/css/*"
+    ]
   },
   "responseOverrides": {
     "401": {
-      "rewrite": "/login.html"
+      "rewrite": "/login"
     },
     "404": {
       "rewrite": "/custom-404.html"

@@ -11,6 +11,7 @@ import { ProfilService } from '../services/profil.service';
 })
 export class ProfileComponent implements OnInit {
   userProfile: any;
+  profileUrl: string = window.location.href;
 
   constructor(
     private profileService: ProfilService,
@@ -21,6 +22,7 @@ export class ProfileComponent implements OnInit {
     const userId = this.activatedRoute.snapshot.params['userId']
     this.profileService.getUserProfile(userId).subscribe((data) => {
       this.userProfile = data;
+      this.userProfile.name = this.userProfile.name.split('@')[0].replace('.', ' ');
     });
   }
 

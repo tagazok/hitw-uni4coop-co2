@@ -1,22 +1,28 @@
 <div>
     <div class="profile margin-bottom-2 flex flex-direction-row header padding-1 padding-bottom-2 padding-top-2">
         <div class="trophy flex flex-direction-column">
-            <img src="/assets/images/badges/done.png" [ngClass]="{'disabled': userProfile?.totalFunded < 1}"
-                *ngIf=" userProfile?.totalFunded > 1" />
-            <img src="/assets/images/badges/sick.png" *ngIf=" userProfile?.totalFunded <= 1" />
+            <img src="/assets/images/badges/done.png" *ngIf=" userProfile?.totalFunded >= 1" />
+            <img src="/assets/images/badges/sick.png" *ngIf=" userProfile?.totalFunded < 1" />
             <div class="value text-center">
                 {{userProfile?.totalFunded}}
             </div>
         </div>
-        <div class="infos flex flex-direction-column flex-grow justify-content-space-around padding-left-2">
+        <div class="infos flex flex-direction-column flex-grow justify-content-space-around">
             <div class="flex flex-direction-row justify-content-space-between">
                 <div class="username flex align-items-center">{{userProfile?.name}}</div>
 
-                <a mat-button>
+                <a mat-button [matMenuTriggerFor]="shareMenu">
                     <mat-icon>share</mat-icon>
                 </a>
-            </div>
+                <mat-menu #shareMenu="matMenu">
+                    <a mat-menu-item target="_blank"
+                        href="https://www.linkedin.com/shareArticle?mini=true&url={{profileUrl}}&title=Help%20me%20save%20the%20planet%20by%20reducing%20our%20carbon%20footprint&summary=Join%20me%20on%20HappyPlanet&source=HappyPlanet">Linkedin</a>
+                    <a mat-menu-item target="_blank"
+                        href="https://twitter.com/intent/tweet?text=Help me save the planet by reducing our carbon footprint with %23HappyPlanet%20{{profileUrl}}">Twitter</a>
 
+                </mat-menu>
+            </div>
+            <!-- https://twitter.com/intent/tweet?text=%22React%20Hooks%20-%20useContext%22%20by%20Mysterio%20%23DEVCommunity%20https%3A%2F%2Fdev.to%2Fshubhamtiwari909%2Freact-hooks-usecontext-1ml2 -->
             <div>
                 <div *ngIf="userProfile?.totalFunded > 0">
                     INSPIRING!<br />
