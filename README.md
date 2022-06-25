@@ -31,7 +31,7 @@ Estimated amount of CO2 saved are extrapolated from different sources.
 
 1. *Going vegetarian for one day would save 4kg of CO2.*
 
-This estimation comes from this [article](https://youmatter.world/fr/regime-alimentaire-ecologique-vegetarien-omnivore/#:~:text=Les%20r%C3%A9gimes%20v%C3%A9g%C3%A9tariens%20et%20vegans,plus%20que%20le%20r%C3%A9gime%20vegan.) where they state that footprint by diet type are on average about 3.3t for meat lovers and 1.7t for vegeterian per year. This means that the difference between the 2 diets is about 1.6t per year. Considering 365 days a year, we estimated the difference that a meat lover would consume 1600/365 = 4.38kg per day that we rounded to 4kg for simplicity.
+This estimation comes from this [article](https://youmatter.world/fr/regime-alimentaire-ecologique-vegetarien-omnivore/#:~:text=Les%20r%C3%A9gimes%20v%C3%A9g%C3%A9tariens%20et%20vegans,plus%20que%20le%20r%C3%A9gime%20vegan.) where they state that footprint by diet type are on average about 3.3t for meat lovers and 1.7t for vegeterian per year. This means that the difference between the 2 diets is about 1.6t per year. Considering 365 days a year, we estimated the difference that a meat lover would consume $1600/365 = 4.38kg$ per day that we rounded to 4kg for simplicity.
 
 2. *Taking public transport or bicycle would save 67% of your carbon footprint by car for the same distance.*
 
