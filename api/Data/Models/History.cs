@@ -11,7 +11,8 @@ namespace api.Data.Models
         [Key]
         public int Id { get; set; }
         public int? UserId { get; set; }
-        public int CreditInKgOfCo2 { get; set; }
+        [Column(TypeName = "decimal(10, 3)")]
+        public decimal? CreditInKgOfCo2 { get; set; }
         public DateTime? Date { get; set; }
         [StringLength(256)]
         public string Code { get; set; }
