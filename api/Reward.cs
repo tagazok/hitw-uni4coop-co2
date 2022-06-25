@@ -53,7 +53,6 @@ namespace HITW.Function
                 return new BadRequestObjectResult("You already won today");
             }
 
-            // todo: map code to credit in co2
             var creditInKgOfCo2 = rreq.Code switch
             {
                 "VEGGIE" => Calculation.GoVeggie(),
