@@ -106,7 +106,10 @@ namespace HITW.Function
             _dbContext.Trips.Add(trip);
             _dbContext.SaveChanges();
 
-            return new OkObjectResult(_dbContext.Trips.Where(x => x.UserId == user.Id).Select(x => new
+            return new OkObjectResult(_dbContext.Trips
+                .Where(x => x.UserId == user.Id)
+                .Where(x => x.Id == trip.Id)
+                .Select(x => new
             {
                 label = x.Label,
                 id = x.Id,
