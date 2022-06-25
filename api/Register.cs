@@ -40,7 +40,9 @@ namespace HITW.Function
 
             _dbContext.SaveChanges();
 
-            return new OkResult();
+            var currentUser = _dbContext.Users.Where(x => x.ExternalId == id).FirstOrDefault();
+
+            return new OkObjectResult(currentUser);
         }
     }
 }
