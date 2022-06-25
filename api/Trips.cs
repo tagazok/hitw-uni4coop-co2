@@ -110,6 +110,36 @@ namespace HITW.Function
             }).SingleOrDefault());
         }
 
+        [FunctionName("TripGet")]
+        public async Task<IActionResult> TripGet(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Trips/{id}")] HttpRequest req,
+            int id,
+            ILogger log)
+        {
+            var u = StaticWebAppAuth.Parse(req);
+            var externalId = u.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var user = _dbContext.Users.Where(x => x.ExternalId == externalId).SingleOrDefault();
+            if (user is null)
+            {
+                return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
+            }
+            var trip = _dbContext.Trips.Where(x => x.Id == id && x.UserId == user.Id).SingleOrDefault();
+            if (trip is null)
+            {
+                return new StatusCodeResult((int)HttpStatusCode.NotFound);
+            }
+            return new OkObjectResult(new
+            {
+                label = trip.Label,
+                id = trip.Id,
+                co2 = trip.Co2Kg,
+                departure = trip.Departure,
+                arrival = trip.Arrival,
+                percentage = new Random().Next(0, 100),
+                isRoundTrip = trip.IsRoundTrip,
+            });
+        }
+
         [FunctionName("TripsList")]
         public async Task<IActionResult> TripsList(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Trips")] HttpRequest req,
