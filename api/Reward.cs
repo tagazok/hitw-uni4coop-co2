@@ -18,6 +18,7 @@ namespace HITW.Function
     {
         public string Code { get; set; }
         public int Distance { get; set; }
+        public int TripId { get; set; }
     }
 
 
@@ -58,6 +59,7 @@ namespace HITW.Function
                     CreditInKgOfCo2 = creditInKgOfCo2,
                     Date = DateTime.UtcNow,
                     UserId = user.Id,
+                    TripId = rreq.TripId
                 });
 
                 _dbContext.SaveChanges();
