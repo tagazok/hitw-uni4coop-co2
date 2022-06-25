@@ -1,0 +1,24 @@
+<div class="padding-1">
+    <div class="profile margin-bottom-2 flex flex-direction-row">
+        <div class="trophy flex flex-direction-column">
+            <img src="/assets/images/badges/done.png" />
+            <div class="value text-center">
+                {{userProfile?.totalFunded}}
+            </div>
+        </div>
+        <div class="infos flex flex-direction-column flex-grow justify-content-space-around padding-left-2">
+            <div class="username">{{userProfile?.name}}</div>
+
+            <div>
+                <div *ngIf="userProfile?.totalFunded > 0">
+                    INSPIRING!</div>
+                {{userProfile?.name}}, have compensated {{userProfile?.totalFunded}} trips out of
+                {{userProfile?.totalTrip}}.
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <h1>BADGES</h1>
+        <img src="/assets/images/badges/computer.png" *ngIf="userProfile.computer >= 1" />
+    </div>
+</div>

@@ -5,6 +5,7 @@ import { TripAddComponent } from './dashboard/trip-add/trip-add.component';
 import { LoginComponent } from './login/login.component';
 import { TripInfoComponent } from './dashboard/trip-info/trip-info.component';
 import { ActivityAddComponent } from './dashboard/activity-add/activity-add.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard/trips/:id', component: TripInfoComponent },
   { path: 'dashboard/activity/add/:tripId', component: ActivityAddComponent },
+  { path: 'users/:userId', component: ProfileComponent }
 ];
 
 @NgModule({

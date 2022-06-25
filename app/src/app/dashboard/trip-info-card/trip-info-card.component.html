@@ -1,5 +1,5 @@
 <div class="flex flex-direction-column" [class.large]="large" *ngIf="trip"
-    [ngClass]="{'red': trip.percentage <= 25, 'orange': trip.percentage > 25 && trip.percentage <= 75, 'green': trip.percentage > 75 && trip.percentage <= 100 }">
+    [ngClass]="{'red': trip.percentage <= 25, 'orange': trip.percentage > 25 && trip.percentage <= 75, 'green': trip.percentage > 75 && trip.percentage }">
 
     <div class="flex-grow padding-bottom-1">
         <h1 class="margin-bottom-pt1em">{{trip?.label}}</h1>

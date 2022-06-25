@@ -29,6 +29,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { ActivityAddComponent } from './dashboard/activity-add/activity-add.component';
 import { TripInfoCardComponent } from './dashboard/trip-info-card/trip-info-card.component';
 import { ActivityItemComponent } from './dashboard/activity-item/activity-item.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ActivityItemComponent } from './dashboard/activity-item/activity-item.c
     TripInfoComponent,
     ActivityAddComponent,
     TripInfoCardComponent,
-    ActivityItemComponent
+    ActivityItemComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

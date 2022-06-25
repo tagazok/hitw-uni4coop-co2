@@ -1,13 +1,11 @@
-<div class="padding-1 padding-top-2 padding-bottom-2 large" id="header">
+<div class="padding-1 padding-top-2 padding-bottom-2 large" id="header"
+  [ngClass]="{'red': (currentStatus / total) * 100 <= 25, 'orange': (currentStatus / total) * 100 > 25 && (currentStatus / total) * 100 <= 75, 'green': (currentStatus / total) * 100 > 75 && (currentStatus / total) * 100 }">
   <!-- <h1 class="text-center">TOTAL</h1> -->
   <!-- <div>Vos émissions carbonnes totales:</div> -->
   <div class="flex flex-direcrtion-row">
     <!-- <mat-icon aria-hidden="false">workspace_premium</mat-icon> -->
     <img id="trophy" src="/assets/images/trophy.png" />
-    <div
-      class="flex-grow flex flex-direction-column justify-content-center"
-      id="infos"
-    >
+    <div class="flex-grow flex flex-direction-column justify-content-center" id="infos">
       <!-- <div class="text-center margin-bottom-1">
         <div class="value">{{nbTrips}}</div>
         <div class="label">TRIPS</div>
@@ -31,27 +29,13 @@
       </mat-progress-spinner>
     </div> -->
   </div>
-  <mat-progress-bar
-    mode="determinate"
-    [value]="(currentStatus / total) * 100"
-  ></mat-progress-bar>
+  <mat-progress-bar mode="determinate" [value]="(currentStatus / total) * 100"></mat-progress-bar>
 </div>
 <app-trip-list></app-trip-list>
-<button
-  mat-fab
-  color="primary"
-  aria-label="Add new trip"
-  id="btn-add"
-  [matMenuTriggerFor]="menu"
->
+<button mat-fab color="primary" aria-label="Add new trip" id="btn-add" [matMenuTriggerFor]="menu">
   <mat-icon>add</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
   <a mat-menu-item routerLink="/dashboard/trips/add">Add a travel</a>
   <a mat-menu-item routerLink="/dashboard/trips/add">Add an activity</a>
-</mat-menu>
-
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
 </mat-menu>
