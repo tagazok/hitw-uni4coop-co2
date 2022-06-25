@@ -45,8 +45,10 @@ namespace HITW.Function
 
             var alreadyWonToday = from r in _dbContext.Histories
                                   where r.UserId == user.Id
+                                  where r.TripId == rreq.TripId
                                   where r.Code == rreq.Code
-                                  where r.Date == DateTime.Today
+                                  where r.Date != null
+                                  where r.Date.Value.Date == DateTime.Today
                                   select r;
 
             if (alreadyWonToday.Any())
