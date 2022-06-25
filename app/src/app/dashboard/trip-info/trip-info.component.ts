@@ -10,6 +10,8 @@ import { TripService } from '../../services/trip.service';
 })
 export class TripInfoComponent implements OnInit {
   public trip: Trip | undefined;
+  public randomTip: string = "";
+
   constructor(
     private tripService: TripService,
     private activatedRoute: ActivatedRoute,
@@ -22,7 +24,16 @@ export class TripInfoComponent implements OnInit {
     this.tripService.getTrip(+id).subscribe(
       (trip) => {
         this.trip = trip;
+        this.generateRandomTip();
       }
     )
+  }
+
+  generateRandomTip() {
+    const tips = [
+      `This travel represents ${this.trip?.co2} steaks of 200g`
+    ];
+
+    this.randomTip = tips[Math.floor(Math.random() * tips.length)];
   }
 }

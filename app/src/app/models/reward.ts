@@ -2,6 +2,8 @@ export interface Reward {
   code: Code;
   distance: number | undefined;
   tripId: number;
+  date?: string;
+  creditInKgOfCo2?: number
 }
 export enum Code {
   VEGGIE = "VEGGIE",

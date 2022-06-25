@@ -1,0 +1,34 @@
+<div class="flex flex-direction-row">
+    <div class="flex align-items-center">
+        <mat-icon *ngIf="reward?.code === 'SHOWER'">shower</mat-icon>
+        <mat-icon *ngIf="reward?.code === 'VEGGIE'">no_food</mat-icon>
+        <mat-icon *ngIf="reward?.code === 'TRANSPORTATION'">directions_bus</mat-icon>
+        <mat-icon *ngIf="reward?.code === 'PLASTIC'">shopping_bag</mat-icon>
+        <mat-icon *ngIf="reward?.code === 'RECYCLING'">recycling</mat-icon>
+        <mat-icon *ngIf="reward?.code === 'COMPUTER'">power_settings_new</mat-icon>
+        <mat-icon *ngIf="reward?.code === 'THERMOSTAT'">device_thermostat</mat-icon>
+        <mat-icon *ngIf="reward?.code === 'DONATION'">volunteer_activism</mat-icon>
+    </div>
+    <div class="padding-left-1 flex flex-direction-column flex-grow">
+        <div>
+            <span *ngIf="reward?.code === 'SHOWER'">I took a shower instead of a bath.</span>
+            <span *ngIf="reward?.code === 'VEGGIE'">I went veggie today.</span>
+            <span *ngIf="reward?.code === 'TRANSPORTATION'">I used public transportation.</span>
+            <span *ngIf="reward?.code === 'PLASTIC'">I brought my own bag at the grocery store.</span>
+            <span *ngIf="reward?.code === 'RECYCLING'">I recicled all my waste today.</span>
+            <span *ngIf="reward?.code === 'COMPUTER'">I turned of my computer instead of using battery save mode.</span>
+            <span *ngIf="reward?.code === 'THERMOSTAT'">I turned my thermostat down by 1°C today.</span>
+            <span *ngIf="reward?.code === 'DONATION'">I donated money to plan trees.</span>
+        </div>
+        <small class="date">
+            {{reward?.date | date}}
+        </small>
+    </div>
+    <div class="credit flex align-items-center flex-direction-column">
+        <div class="creditKg">+ {{reward?.creditInKgOfCo2}}
+        </div>
+        <small>
+            Kg CO2
+        </small>
+    </div>
+</div>
