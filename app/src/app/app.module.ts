@@ -26,6 +26,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TripInfoComponent } from './dashboard/trip-info/trip-info.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { ActivityAddComponent } from './dashboard/activity-add/activity-add.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { MatMenuModule } from '@angular/material/menu';
     HomeComponent,
     TripListComponent,
     TripAddComponent,
-    TripInfoComponent
+    TripInfoComponent,
+    ActivityAddComponent
   ],
   imports: [
     BrowserModule,
