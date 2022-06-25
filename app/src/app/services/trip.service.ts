@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Dashboard } from '../models/dashboard';
 import { Trip } from '../models/trip';
 import { User } from '../models/user';
 
@@ -15,8 +16,8 @@ export class TripService {
     private httpClient: HttpClient
   ) { }
 
-  public getTrips(): Observable<Trip[]> {
-    return this.httpClient.get<Trip[]>(this.urlAPI);
+  public getTrips(): Observable<Dashboard> {
+    return this.httpClient.get<Dashboard>(this.urlAPI);
   }
   public getTrip(id: number): Observable<Trip> {
     return this.httpClient.get<Trip>(this.urlAPI + id + '/');

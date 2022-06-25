@@ -28,10 +28,11 @@ export class HomeComponent implements OnInit {
 
   getTrips(): void {
     this.tripService.getTrips().subscribe(
-      (trips) => {
+      (dash) => {
+        let trips = dash.trips;
+        this.total = dash.totalCo2;
         trips.forEach(
           (trip) => {
-            this.total += trip.co2;
             this.currentStatus += trip.percentage;
             this.nbTrips++;
           }

@@ -20,8 +20,8 @@ export class TripListComponent implements OnInit {
 
   private getTrips() {
     this.tripService.getTrips().subscribe({
-      next: (trips) => {
-        this.trips = trips;
+      next: (dash) => {
+        this.trips = dash.trips;
       },
       error: (err) => {
         console.log(err)
