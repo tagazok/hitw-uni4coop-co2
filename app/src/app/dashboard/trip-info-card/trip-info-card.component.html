@@ -17,7 +17,7 @@
             Almost there. {{trip.co2 /100 * trip.percentage | number: '1.0-0'}}kg of CO2 until you are good!
         </small>
         <small *ngIf="trip.percentage >= 100">
-            You did it!
+            Congratulations! You did it!
         </small>
     </div>
     <mat-progress-bar mode="determinate" [value]="trip.percentage"></mat-progress-bar>
