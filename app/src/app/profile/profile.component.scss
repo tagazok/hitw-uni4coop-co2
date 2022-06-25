@@ -12,3 +12,19 @@
         font-size: 2em;
     }
 }
+
+img {
+    &.disabled {
+        filter: grayscale(100%);
+        opacity: .7;
+    }
+}
+
+.badges {
+    img {
+        width: 30%;
+        max-width: 200px;
+        padding-bottom: 1em;
+    }
+
+}

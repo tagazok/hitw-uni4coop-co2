@@ -1,7 +1,7 @@
 <div class="padding-1">
     <div class="profile margin-bottom-2 flex flex-direction-row">
         <div class="trophy flex flex-direction-column">
-            <img src="/assets/images/badges/done.png" />
+            <img src="/assets/images/badges/done.png" [ngClass]="{'disabled': userProfile?.totalFunded < 1}" />
             <div class="value text-center">
                 {{userProfile?.totalFunded}}
             </div>
@@ -12,6 +12,8 @@
             <div>
                 <div *ngIf="userProfile?.totalFunded > 0">
                     INSPIRING!</div>
+                <div *ngIf="userProfile?.totalFunded == 0">
+                    EARTH NEEDS YOU!</div>
                 {{userProfile?.name}}, have compensated {{userProfile?.totalFunded}} trips out of
                 {{userProfile?.totalTrip}}.
             </div>
@@ -19,6 +21,24 @@
     </div>
     <div class="text-center">
         <h1>BADGES</h1>
-        <img src="/assets/images/badges/computer.png" *ngIf="userProfile.computer >= 1" />
+        <div class="flex flex-direction-row flex-wrap-wrap justify-content-space-between badges">
+            <img src="/assets/images/badges/badge-transportation.png"
+                [ngClass]="{'disabled': userProfile?.transportation < 1}"
+                (click)="openBadgeDetails('transportation')" />
+            <img src="/assets/images/badges/badge-computer.png" [ngClass]="{'disabled': userProfile?.computer < 2}"
+                (click)="openBadgeDetails('computer')" />
+            <img src="/assets/images/badges/badge-veggie.png" [ngClass]="{'disabled': userProfile?.veggie < 3}"
+                (click)="openBadgeDetails('veggie')" />
+            <img src="/assets/images/badges/badge-plastic.png" [ngClass]="{'disabled': userProfile?.plastic < 3}"
+                (click)="openBadgeDetails('plastic')" />
+            <img src="/assets/images/badges/badge-recycling.png" [ngClass]="{'disabled': userProfile?.recycling < 5}"
+                (click)="openBadgeDetails('recycling')" />
+            <img src="/assets/images/badges/badge-thermostat.png" [ngClass]="{'disabled': userProfile?.thermostat < 1}"
+                (click)="openBadgeDetails('thermostat')" />
+            <img src="/assets/images/badges/badge-shower.png" [ngClass]="{'disabled': userProfile?.shower < 1}"
+                (click)="openBadgeDetails('shower')" />
+            <img src="/assets/images/badges/badge-donation.png" [ngClass]="{'disabled': userProfile?.donation < 10}"
+                (click)="openBadgeDetails('donation')" />
+        </div>
     </div>
 </div>

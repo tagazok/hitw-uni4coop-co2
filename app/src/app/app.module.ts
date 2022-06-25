@@ -31,6 +31,8 @@ import { TripInfoCardComponent } from './dashboard/trip-info-card/trip-info-card
 import { ActivityItemComponent } from './dashboard/activity-item/activity-item.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ActivityAddTransportModalComponent } from './dashboard/activity-add-transport-modal/activity-add-transport-modal.component';
+import { MatBottomSheetModule, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
+import { BadgeDetailsComponent } from './badge-details/badge-details.component';
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { ActivityAddTransportModalComponent } from './dashboard/activity-add-tra
     TripInfoCardComponent,
     ActivityItemComponent,
     ProfileComponent,
-    ActivityAddTransportModalComponent
+    ActivityAddTransportModalComponent,
+    BadgeDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -64,10 +67,12 @@ import { ActivityAddTransportModalComponent } from './dashboard/activity-add-tra
     MatCheckboxModule,
     MatIconModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatBottomSheetModule
   ],
   providers: [
     // { provide: LocationStrategy, useClass: HashLocationStrategy }
+    { provide: MAT_BOTTOM_SHEET_DATA, useValue: {} }
   ],
   bootstrap: [AppComponent]
 })
