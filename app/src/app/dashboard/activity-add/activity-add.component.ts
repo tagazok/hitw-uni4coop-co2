@@ -5,6 +5,7 @@ import { Reward } from 'src/app/models/reward';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivityAddTransportModalComponent } from '../activity-add-transport-modal/activity-add-transport-modal.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class ActivityAddComponent implements OnInit {
     private rewardService: RewardService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -40,11 +42,16 @@ export class ActivityAddComponent implements OnInit {
           tripId: this.tripId!,
           distance: undefined,
         }
-        this.rewardService.addReward(reward).subscribe(
-          (receivedReward) => {
-            this.router.navigate(['/dashboard/trips/' + this.tripId])
+        this.rewardService.addReward(reward).subscribe({
+          next:
+            (receivedReward) => {
+              this.router.navigate(['/dashboard/trips/' + this.tripId]);
+              this._snackBar.open('your reward has been succesfully claimed');
+            }
+          , error: (err) => {
+            this._snackBar.open(err.error);
           }
-        )
+        });
         break;
       case Code.TRANSPORTATION:
         this.dialog.open(ActivityAddTransportModalComponent, {

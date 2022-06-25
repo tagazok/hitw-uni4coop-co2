@@ -34,6 +34,7 @@ import { ActivityAddTransportModalComponent } from './dashboard/activity-add-tra
 import { MatBottomSheetModule, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 import { BadgeDetailsComponent } from './badge-details/badge-details.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatMenuModule,
     MatDialogModule,
     MatBottomSheetModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSnackBarModule
   ],
   providers: [
     // { provide: LocationStrategy, useClass: HashLocationStrategy }
