@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard/trips/:id', component: TripInfoComponent, canActivate: [IsAuthenticatedGuard] },
   { path: 'dashboard/activity/add/:tripId', component: ActivityAddComponent, canActivate: [IsAuthenticatedGuard] },
-  { path: 'users/:userId', component: ProfileComponent }
+  { path: 'users/:userId', component: ProfileComponent },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
 
 @NgModule({
