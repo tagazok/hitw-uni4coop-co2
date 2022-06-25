@@ -22,7 +22,7 @@ namespace HITW.Function
         [FunctionName("Users")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "users/{id}")] HttpRequest req,
-            ILogger log, int id)
+            ILogger log, string id)
         {
 
             var modelDistance = new
@@ -39,56 +39,56 @@ namespace HITW.Function
             {
                 SHOWER = _dbContext
                     .Histories
-                    .Where(x => x.UserId == id)
+                    .Where(x => x.User.ExternalId == id)
                     .Where(x => x.Code == "SHOWER")
                     .Count(),
                 VEGGIE = _dbContext
                     .Histories
-                    .Where(x => x.UserId == id)
+                    .Where(x => x.User.ExternalId == id)
                     .Where(x => x.Code == "VEGGIE")
                     .Count(),
                 THERMOSTAT = _dbContext
                     .Histories
-                    .Where(x => x.UserId == id)
+                    .Where(x => x.User.ExternalId == id)
                     .Where(x => x.Code == "THERMOSTAT")
                     .Count(),
                 RECYCLING = _dbContext
                     .Histories
-                    .Where(x => x.UserId == id)
+                    .Where(x => x.User.ExternalId == id)
                     .Where(x => x.Code == "RECYCLING")
                     .Count(),
                 PLASTIC = _dbContext
                     .Histories
-                    .Where(x => x.UserId == id)
+                    .Where(x => x.User.ExternalId == id)
                     .Where(x => x.Code == "PLASTIC")
                     .Count(),
                 COMPUTER = _dbContext
                     .Histories
-                    .Where(x => x.UserId == id)
+                    .Where(x => x.User.ExternalId == id)
                     .Where(x => x.Code == "COMPUTER")
                     .Count(),
                 totalDistance = _dbContext
                     .Histories
-                    .Where(x => x.UserId == id)
+                    .Where(x => x.User.ExternalId == id)
                     .Where(x => x.Code == "TRANSPORTATION")
                     .ToList()
                     .Select(x => JsonConvert.DeserializeAnonymousType(x.Data, modelDistance))
                     .Sum(x => x.distance),
                 totalDonation = _dbContext
                     .Histories
-                    .Where(x => x.UserId == id)
+                    .Where(x => x.User.ExternalId == id)
                     .Where(x => x.Code == "DONATION")
                     .ToList()
                     .Select(x => JsonConvert.DeserializeAnonymousType(x.Data, modelDonation))
                     .Sum(x => x.amount),
 
-                totalTrip = _dbContext.Trips.Where(x => x.UserId == id).Count(),
+                totalTrip = _dbContext.Trips.Where(x => x.User.ExternalId == id).Count(),
                 totalFunded = _dbContext.Trips
-                    .Where(x => x.UserId == id)
+                    .Where(x => x.User.ExternalId == id)
                     .Select(x => (x.Histories.Sum(y => y.CreditInKgOfCo2) / x.Co2Kg) >= 1)
                     .Count(x => x == true),
 
-                name = _dbContext.Users.Where(x => x.Id == id).FirstOrDefault()?.Firtsname,
+                name = _dbContext.Users.Where(x => x.ExternalId == id).FirstOrDefault()?.Firtsname,
             };
 
             return new OkObjectResult(profile);
