@@ -1,0 +1,18 @@
+<form
+  [formGroup]="formNbrKilometer"
+  (ngSubmit)="sendActivity()"
+  class="flex flex-direction-column"
+>
+  <mat-form-field>
+    <mat-label>Number of kilometers done:</mat-label>
+    <input formControlName="kmQuantity" matInput placeholder="Ex. 25kms" />
+  </mat-form-field>
+  <button
+    mat-flat-button
+    color="primary"
+    type="submit"
+    [disabled]="!formNbrKilometer.valid"
+  >
+    Add
+  </button>
+</form>
