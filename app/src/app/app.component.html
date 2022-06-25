@@ -9,7 +9,7 @@
             <mat-menu #mainMenu="matMenu">
                 <a mat-menu-item routerLink="/dashboard/">Home</a>
                 <a mat-menu-item routerLink="/users/{{authService.user?.userId}}">Profile</a>
-                <a mat-menu-item href="/.auth/logout?post_logout_redirect_uri=/">Logout</a>
+                <a mat-menu-item href="/.auth/logout?post_logout_redirect_uri=/login">Logout</a>
             </mat-menu>
         </div>
     </mat-toolbar-row>
