@@ -13,6 +13,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ActivityAddComponent implements OnInit {
   private tripId: number | undefined;
 
+  public code = Code;
+
   constructor(
     private rewardService: RewardService,
     private activatedRoute: ActivatedRoute

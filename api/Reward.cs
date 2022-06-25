@@ -62,6 +62,7 @@ namespace HITW.Function
                 "PLASTIC" => Calculation.ReusePlasticBag(),
                 "COMPUTER" => Calculation.TurnOffComputers(),
                 "THERMOSTAT" => Calculation.TurnDownThermostats(),
+                "RECYCLING" => Calculation.Recycling(),
                 _ => throw new ArgumentOutOfRangeException($"Invalid public code: {rreq.Code}")
             };
 
