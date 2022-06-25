@@ -15,7 +15,11 @@ namespace api.Data.Models
         public DateTime? Date { get; set; }
         [StringLength(256)]
         public string Code { get; set; }
+        public int? TripId { get; set; }
 
+        [ForeignKey("TripId")]
+        [InverseProperty("Histories")]
+        public virtual Trip Trip { get; set; }
         [ForeignKey("UserId")]
         [InverseProperty("Histories")]
         public virtual User User { get; set; }

@@ -8,6 +8,11 @@ namespace api.Data.Models
 {
     public partial class Trip
     {
+        public Trip()
+        {
+            Histories = new HashSet<History>();
+        }
+
         [Key]
         public int Id { get; set; }
         [StringLength(256)]
@@ -23,5 +28,7 @@ namespace api.Data.Models
         [ForeignKey("UserId")]
         [InverseProperty("Trips")]
         public virtual User User { get; set; }
+        [InverseProperty("Trip")]
+        public virtual ICollection<History> Histories { get; set; }
     }
 }

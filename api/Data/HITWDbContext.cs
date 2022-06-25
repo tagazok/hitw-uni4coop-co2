@@ -25,6 +25,11 @@ namespace api.Data
         {
             modelBuilder.Entity<History>(entity =>
             {
+                entity.HasOne(d => d.Trip)
+                    .WithMany(p => p.Histories)
+                    .HasForeignKey(d => d.TripId)
+                    .HasConstraintName("FK__Histories__TripI__6E01572D");
+
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Histories)
                     .HasForeignKey(d => d.UserId)
