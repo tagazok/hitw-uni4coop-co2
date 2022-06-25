@@ -33,7 +33,7 @@ namespace HITW.Function
 
         [FunctionName("Reward")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "rewards")] HttpRequest req,
             ILogger log)
         {
             var u = StaticWebAppAuth.Parse(req);
@@ -48,8 +48,22 @@ namespace HITW.Function
                                   where r.Date == DateTime.Today
                                   select r;
 
+            if (alreadyWonToday.Any())
+            {
+                return new BadRequestObjectResult("You already won today");
+            }
+
             // todo: map code to credit in co2
-            var creditInKgOfCo2 = 1;
+            var creditInKgOfCo2 = rreq.Code switch
+            {
+                "VEGGIE" => Calculation.GoVeggie(),
+                "TRANSPORTATION" => Calculation.TakePublicTransportationOrBicycle(rreq.Distance),
+                "SHOWER" => Calculation.TakeShowerInsteadOfBath(),
+                "PLASTIC" => Calculation.ReusePlasticBag(),
+                "COMPUTER" => Calculation.TurnOffComputers(),
+                "THERMOSTAT" => Calculation.TurnDownThermostats(),
+                _ => throw new ArgumentOutOfRangeException($"Invalid public code: {rreq.Code}")
+            };
 
             if (!alreadyWonToday.Any())
             {
