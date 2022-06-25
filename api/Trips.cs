@@ -85,14 +85,14 @@ namespace HITW.Function
             httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json");
 
             var rawResp = await httpClient.PostAsJsonAsync("https://beta3.api.climatiq.io/travel/flights", payload);
-            
+
             var resp = JsonConvert.DeserializeObject<ClimatiqResp>(await rawResp.Content.ReadAsStringAsync());
 
             if(Math.Round(resp.Co2e) == 0)
             {
                 resp.Co2e = 1;
             }
-   
+
             if (body.IsRoundTrip == true)
             {
                 resp.Co2e *= 2;
@@ -162,6 +162,7 @@ namespace HITW.Function
                     date = x.Date,
                     tripId = x.TripId,
                     rewardId = x.Id,
+                    data = x.Data,
                 }).ToList(),
             });
         }
