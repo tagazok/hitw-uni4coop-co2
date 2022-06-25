@@ -19,4 +19,7 @@ export class RewardService {
   public addReward(reward: Reward): Observable<Reward> {
     return this.httpClient.post<Reward>(this.urlAPI, reward);
   }
+  public getRedeemedActivities(tripId: number): Observable<string[]> {
+    return this.httpClient.get<string[]>(this.urlAPI + 'available/' + tripId);
+  }
 }

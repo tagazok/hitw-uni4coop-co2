@@ -14,18 +14,25 @@
   <div
     class="flex flex-direction-row align-items-center justify-content-space-around activity-row margin-1"
   >
-    <mat-card class="activity-row-card" (click)="sendReward(code.VEGGIE)">
+    <button
+      mat-raised-button
+      class="activity-row-card"
+      (click)="sendReward(code.VEGGIE)"
+      [disabled]="!availableActivities.includes(code.VEGGIE)"
+    >
       <div
         class="flex flex-direction-column align-items-center justify-content-center"
       >
         <mat-icon>no_food</mat-icon>
         <p>Veggie Day</p>
       </div>
-    </mat-card>
+    </button>
 
-    <mat-card
+    <button
+      mat-raised-button
       class="activity-row-card"
       (click)="sendReward(code.TRANSPORTATION)"
+      [disabled]="!availableActivities.includes(code.TRANSPORTATION)"
     >
       <div
         class="flex flex-direction-column align-items-center justify-content-center"
@@ -33,62 +40,89 @@
         <mat-icon>directions_bus</mat-icon>
         <p>Public transp./bicycle</p>
       </div>
-    </mat-card>
+    </button>
   </div>
   <div
     class="flex flex-direction-row align-items-center justify-content-space-around activity-row margin-1"
   >
-    <mat-card class="activity-row-card" (click)="sendReward(code.SHOWER)">
+    <button
+      mat-raised-button
+      class="activity-row-card"
+      (click)="sendReward(code.SHOWER)"
+      [disabled]="!availableActivities.includes(code.SHOWER)"
+    >
       <div
         class="flex flex-direction-column align-items-center justify-content-center"
       >
         <mat-icon>shower</mat-icon>
         <p>Replace bath</p>
       </div>
-    </mat-card>
-    <mat-card class="activity-row-card" (click)="sendReward(code.PLASTIC)">
+    </button>
+    <button
+      mat-raised-button
+      class="activity-row-card"
+      (click)="sendReward(code.PLASTIC)"
+      [disabled]="!availableActivities.includes(code.PLASTIC)"
+    >
       <div
         class="flex flex-direction-column align-items-center justify-content-center"
       >
         <mat-icon>shopping_bag</mat-icon>
         <p>Reusable bag</p>
       </div>
-    </mat-card>
+    </button>
   </div>
   <div
     class="flex flex-direction-row align-items-center justify-content-space-around activity-row margin-1"
   >
-    <mat-card class="activity-row-card" (click)="sendReward(code.RECYCLING)">
+    <button
+      mat-raised-button
+      class="activity-row-card"
+      (click)="sendReward(code.RECYCLING)"
+      [disabled]="!availableActivities.includes(code.RECYCLING)"
+    >
       <div
         class="flex flex-direction-column align-items-center justify-content-center"
       >
         <mat-icon>recycling</mat-icon>
         <p>Recycle</p>
       </div>
-    </mat-card>
-    <mat-card class="activity-row-card" (click)="sendReward(code.COMPUTER)">
+    </button>
+    <button
+      mat-raised-button
+      class="activity-row-card"
+      (click)="sendReward(code.COMPUTER)"
+      [disabled]="!availableActivities.includes(code.COMPUTER)"
+    >
       <div
         class="flex flex-direction-column align-items-center justify-content-center"
       >
         <mat-icon>power_settings_new</mat-icon>
         <p>Shut down electronics</p>
       </div>
-    </mat-card>
+    </button>
   </div>
   <div
     class="flex flex-direction-row align-items-center justify-content-space-around activity-row margin-1"
   >
-    <mat-card class="activity-row-card" (click)="sendReward(code.THERMOSTAT)">
+    <button
+      mat-raised-button
+      class="activity-row-card"
+      (click)="sendReward(code.THERMOSTAT)"
+      [disabled]="!availableActivities.includes(code.THERMOSTAT)"
+    >
       <div
         class="flex flex-direction-column align-items-center justify-content-center"
       >
         <mat-icon>device_thermostat</mat-icon>
         <p>Decrease temp.</p>
       </div>
-    </mat-card>
-    <mat-card
+    </button>
+    <button
+      mat-raised-button
       class="activity-row-card"
       (click)="sendReward(code.DONATION)"
+      [disabled]="!availableActivities.includes(code.DONATION)"
     >
       <div
         class="flex flex-direction-column align-items-center justify-content-center"
@@ -96,6 +130,6 @@
         <mat-icon>money</mat-icon>
         <p>Donate</p>
       </div>
-    </mat-card>
+    </button>
   </div>
 </div>

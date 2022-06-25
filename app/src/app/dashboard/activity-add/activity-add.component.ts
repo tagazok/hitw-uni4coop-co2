@@ -19,6 +19,8 @@ export class ActivityAddComponent implements OnInit {
 
   public code = Code;
 
+  public availableActivities: string[] = [];
+
   constructor(
     private rewardService: RewardService,
     private activatedRoute: ActivatedRoute,
@@ -28,7 +30,15 @@ export class ActivityAddComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.tripId = +this.activatedRoute.snapshot.params['tripId']
+    this.tripId = +this.activatedRoute.snapshot.params['tripId'];
+    this.getRedeemedActivities();
+  }
+  getRedeemedActivities() {
+    this.rewardService.getRedeemedActivities(this.tripId!).subscribe(
+      (strings) => {
+        this.availableActivities = strings;
+      }
+    )
   }
   sendReward(code: Code) {
     switch (code) {
