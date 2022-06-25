@@ -87,9 +87,23 @@ namespace HITW.Function
                 });
 
                 _dbContext.SaveChanges();
+
             }
 
-            return new OkResult();
+            // calculate available rewards
+            var allowedRewardType = new[] { "VEGGIE", "TRANSPORTATION", "SHOWER", "PLASTIC", "COMPUTER", "THERMOSTAT", "RECYCLING" };
+            var rewardAlreadyUsed = (from r in _dbContext.Histories
+                                    where r.TripId == rreq.TripId
+                                    where r.Code == rreq.Code
+                                    where r.Date != null
+                                    where r.Date.Value.Date == DateTime.Today
+                                    select r.Code).Distinct().ToList();
+
+            var available = allowedRewardType.Except(rewardAlreadyUsed).ToList();
+            available.Add("DONATION");
+            available.Add("TRANSPORTATION");
+
+            return new OkObjectResult(available);
         }
     }
 }
