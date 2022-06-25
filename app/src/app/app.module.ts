@@ -17,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
-import { RouterLinkWithHref } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
@@ -29,6 +29,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { ActivityAddComponent } from './dashboard/activity-add/activity-add.component';
 import { TripInfoCardComponent } from './dashboard/trip-info-card/trip-info-card.component';
 import { ActivityItemComponent } from './dashboard/activity-item/activity-item.component';
+import { ActivityAddTransportModalComponent } from './dashboard/activity-add-transport-modal/activity-add-transport-modal.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ActivityItemComponent } from './dashboard/activity-item/activity-item.c
     TripInfoComponent,
     ActivityAddComponent,
     TripInfoCardComponent,
-    ActivityItemComponent
+    ActivityItemComponent,
+    ActivityAddTransportModalComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { ActivityItemComponent } from './dashboard/activity-item/activity-item.c
     MatAutocompleteModule,
     MatCheckboxModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [
     // { provide: LocationStrategy, useClass: HashLocationStrategy }

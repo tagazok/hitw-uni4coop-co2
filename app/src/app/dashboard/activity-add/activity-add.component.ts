@@ -3,6 +3,8 @@ import { Code } from 'src/app/models/reward';
 import { RewardService } from 'src/app/services/reward.service';
 import { Reward } from 'src/app/models/reward';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivityAddTransportModalComponent } from '../activity-add-transport-modal/activity-add-transport-modal.component';
 
 
 @Component({
@@ -18,7 +20,8 @@ export class ActivityAddComponent implements OnInit {
   constructor(
     private rewardService: RewardService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -44,6 +47,11 @@ export class ActivityAddComponent implements OnInit {
         )
         break;
       case Code.TRANSPORTATION:
+        this.dialog.open(ActivityAddTransportModalComponent, {
+          data: {
+            tripId: this.tripId!
+          }
+        });
         break;
 
     }
