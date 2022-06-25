@@ -87,6 +87,8 @@ namespace HITW.Function
                     .Where(x => x.UserId == id)
                     .Select(x => (x.Histories.Sum(y => y.CreditInKgOfCo2) / x.Co2Kg) >= 1)
                     .Count(x => x == true),
+
+                name = _dbContext.Users.Where(x => x.Id == id).FirstOrDefault().Firtsname,
             };
 
             return new OkObjectResult(profile);
