@@ -113,7 +113,7 @@ namespace HITW.Function
                 co2 = x.Co2Kg,
                 departure = x.Departure,
                 arrival = x.Arrival,
-                percentage = new Random().Next(0, 100),
+                percentage = Math.Round(x.Histories.Sum(y => y.CreditInKgOfCo2) / x.Co2Kg ?? 1 * 100),
                 isRoundTrip = x.IsRoundTrip,
                 rewards = Array.Empty<string>(),
             }).SingleOrDefault());
@@ -132,7 +132,7 @@ namespace HITW.Function
             {
                 return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
             }
-            var trip = _dbContext.Trips.Where(x => x.Id == id && x.UserId == user.Id)
+            var trip = _dbContext.Trips.Include(x => x.Histories).Where(x => x.Id == id && x.UserId == user.Id)
                 .Include(x => x.Histories)
                 .SingleOrDefault();
             if (trip is null)
@@ -146,7 +146,7 @@ namespace HITW.Function
                 co2 = trip.Co2Kg,
                 departure = trip.Departure,
                 arrival = trip.Arrival,
-                percentage = new Random().Next(0, 100),
+                percentage = trip.Histories.Sum(x => x.CreditInKgOfCo2) / trip.Co2Kg ?? 1 * 100,
                 isRoundTrip = trip.IsRoundTrip,
                 rewards = trip.Histories.OrderByDescending(x => x.Date).Select(x => new
                 {
@@ -185,7 +185,7 @@ namespace HITW.Function
                             co2 = x.Co2Kg,
                             departure = x.Departure,
                             arrival = x.Arrival,
-                            percentage = new Random().Next(0, 100),
+                            percentage = x.Histories.Sum(y => y.CreditInKgOfCo2) / x.Co2Kg ?? 1 * 100,
                             isRoundTrip = x.IsRoundTrip,
                         }).ToList()
             });
