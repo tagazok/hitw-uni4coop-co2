@@ -1,3 +1,5 @@
+using System;
+
 namespace HITW.Function;
 
 public static class Calculation
@@ -30,5 +32,10 @@ public static class Calculation
     public static decimal TurnDownThermostats()
     {
         return 1.0m;
+    }
+
+    public static decimal Recycling()
+    {
+        return 2.0m;
     }
 }
