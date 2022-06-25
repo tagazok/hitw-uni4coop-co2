@@ -45,7 +45,7 @@ export class TripAddComponent implements OnInit {
 
     this.tripService.addTrip(trip).subscribe({
       next: (trip: Trip) => {
-        this.router.navigate(['/dashboard/trip/' + trip.id]);
+        this.router.navigate(['/dashboard/trips/' + trip.id]);
       },
       error: (err) => {
         this.router.navigate(['/dashboard']);

@@ -42,7 +42,7 @@ export class ActivityAddComponent implements OnInit {
         }
         this.rewardService.addReward(reward).subscribe(
           (receivedReward) => {
-            console.log(receivedReward)
+            this.router.navigate(['/dashboard/trips/' + this.tripId])
           }
         )
         break;
