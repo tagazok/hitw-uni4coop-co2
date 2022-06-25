@@ -1,5 +1,5 @@
-<div class="padding-1">
-    <div class="profile margin-bottom-2 flex flex-direction-row">
+<div>
+    <div class="profile margin-bottom-2 flex flex-direction-row header padding-1 padding-bottom-2 padding-top-2">
         <div class="trophy flex flex-direction-column">
             <img src="/assets/images/badges/done.png" [ngClass]="{'disabled': userProfile?.totalFunded < 1}"
                 *ngIf=" userProfile?.totalFunded > 1" />
@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <div class="text-center">
+    <div class="text-center padding-1">
         <h1>BADGES</h1>
         <div class="flex flex-direction-row flex-wrap-wrap justify-content-space-between badges">
             <img src="/assets/images/badges/badge-transportation.png"
