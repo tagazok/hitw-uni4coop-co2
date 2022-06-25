@@ -167,5 +167,29 @@ namespace HITW.Function
                 isRoundTrip = x.IsRoundTrip,
             }).ToList());
         }
+        
+        [FunctionName("TripDelete")]
+        public async Task<IActionResult> TripDelete(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "Trips/{id}")] HttpRequest req,
+            ILogger log, int id)
+        {
+            var u = StaticWebAppAuth.Parse(req);
+            var externalId = u.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var user = _dbContext.Users.Where(x => x.ExternalId == externalId).SingleOrDefault();
+            if (user is null)
+            {
+                return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
+            }
+            
+            var trip = _dbContext.Trips.Where(x => x.Id == id && x.UserId == user.Id).SingleOrDefault();
+            if (trip is null)
+            {
+                return new StatusCodeResult((int)HttpStatusCode.NotFound);
+            }
+            
+            _dbContext.Trips.Remove(trip);
+            await _dbContext.SaveChangesAsync();
+            return new OkResult();
+        }
     }
 }
