@@ -1,5 +1,3 @@
-using System;
-
 namespace HITW.Function;
 
 public static class Calculation

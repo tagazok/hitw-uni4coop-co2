@@ -17,6 +17,7 @@ namespace api.Data.Models
         [StringLength(256)]
         public string Code { get; set; }
         public int? TripId { get; set; }
+        public string Data { get; set; }
 
         [ForeignKey("TripId")]
         [InverseProperty("Histories")]
