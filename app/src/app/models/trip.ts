@@ -1,3 +1,5 @@
+import { Reward } from "./reward";
+
 export interface Trip {
   id?: number;
   label: string;
@@ -6,4 +8,5 @@ export interface Trip {
   isRoundTrip: boolean;
   percentage: number;
   co2: number;
+  rewards?: Reward[]
 }

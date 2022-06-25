@@ -1,24 +1,9 @@
 <div class="flex flex-direction-column padding-1">
-  <mat-card *ngFor="let trip of trips" class="mat-elevation-z4" routerLink="/dashboard/trips/{{trip.id}}">
+  <div *ngFor="let trip of trips" class="mat-elevation-z4 padding-1 card" routerLink="/dashboard/trips/{{trip.id}}">
     <!-- <mat-card-title>{{ trip.label }}</mat-card-title>
     <mat-card-subtitle>{{ trip.departure }} - {{ trip.arrival }}</mat-card-subtitle> -->
-    <mat-card-content>
-      <div class="flex flex-direction-row">
-        <!-- <mat-progress-bar mode="determinate" [value]="trip.percentage"></mat-progress-bar> -->
-        <div class="flex-grow">
-          <h1>{{trip.label}}</h1>
-          <div class="flex flex-direction-row align-items-center trip">
-            <span class="airport-code">{{trip.departure}}</span>
-            <mat-icon *ngIf="trip.isRoundTrip">connecting_airports</mat-icon>
-            <mat-icon *ngIf="!trip.isRoundTrip" class="rotate-90deg">airplanemode_active</mat-icon>
-            <span class="airport-code">{{trip.arrival}}</span>
-          </div>
-        </div>
-        <div class="percentage flex justify-content-center align-items-center"
-          [ngClass]="{'red': trip.percentage <= 25, 'orange': trip.percentage > 25 && trip.percentage <= 75, 'green': trip.percentage > 75 && trip.percentage <= 100 }">
-          {{trip.percentage}}%
-        </div>
-      </div>
-    </mat-card-content>
-  </mat-card>
+
+    <app-trip-info-card [trip]="trip"></app-trip-info-card>
+
+  </div>
 </div>

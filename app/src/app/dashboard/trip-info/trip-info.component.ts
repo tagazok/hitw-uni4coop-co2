@@ -25,5 +25,4 @@ export class TripInfoComponent implements OnInit {
       }
     )
   }
-
 }

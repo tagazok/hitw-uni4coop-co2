@@ -1,4 +1,4 @@
-<mat-card *ngIf="this.trip">
+<!-- <mat-card *ngIf="this.trip">
   <mat-card-title>Information sur {{ trip.label }}</mat-card-title>
   <mat-card-subtitle
     >{{ trip.departure }} - {{ trip.arrival }}</mat-card-subtitle
@@ -9,4 +9,20 @@
       [value]="trip.percentage"
     ></mat-progress-bar>
   </mat-card-content>
-</mat-card>
+</mat-card> -->
+
+<div *ngIf="this.trip" class="header padding-1 padding-top-2 padding-bottom-2">
+  <app-trip-info-card [trip]="trip"></app-trip-info-card>
+</div>
+
+<div class="tip padding-1">
+  To compensate your travel, you would have to save <b>12 steaks</b> of 200g of beaf
+</div>
+
+<div class="flex flex-direction-column padding-1">
+  <div *ngFor="let reward of trip?.rewards" class="mat-elevation-z4 padding-1 card">
+
+    <app-activity-item [reward]="reward"></app-activity-item>
+
+  </div>
+</div>

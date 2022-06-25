@@ -19,4 +19,14 @@ body {
     transform: rotate(90deg);
 }
 
+.card {
+    margin-bottom: .5em;
+
+    &:last-child {
+        margin-bottom: 5em;
+    }
+
+    border-radius: 4px;
+}
+
 @import 'flexbox'

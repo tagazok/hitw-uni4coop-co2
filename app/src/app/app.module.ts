@@ -27,6 +27,8 @@ import { TripInfoComponent } from './dashboard/trip-info/trip-info.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { ActivityAddComponent } from './dashboard/activity-add/activity-add.component';
+import { TripInfoCardComponent } from './dashboard/trip-info-card/trip-info-card.component';
+import { ActivityItemComponent } from './dashboard/activity-item/activity-item.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { ActivityAddComponent } from './dashboard/activity-add/activity-add.comp
     TripListComponent,
     TripAddComponent,
     TripInfoComponent,
-    ActivityAddComponent
+    ActivityAddComponent,
+    TripInfoCardComponent,
+    ActivityItemComponent
   ],
   imports: [
     BrowserModule,

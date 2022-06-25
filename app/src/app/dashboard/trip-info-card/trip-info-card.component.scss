@@ -1,0 +1,45 @@
+.airport-code {
+    &:first-child {
+        padding-right: .5em;
+    }
+
+    &:last-child {
+        padding-left: .5em;
+    }
+}
+
+h1 {
+    margin-bottom: .1em;
+    // white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+}
+
+.trip {
+    color: grey;
+}
+
+.percentage {
+    margin: -1em;
+    background: orange;
+    padding: 0 1.2em;
+    border-radius: 90% 4px 4px 30%;
+    color: #fff;
+    font-weight: 500;
+
+    .percentage-value {
+        font-size: 1.2em;
+    }
+}
+
+.green {
+    background-color: #198754;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.red {
+    background-color: #dc3545;
+}
