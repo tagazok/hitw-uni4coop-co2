@@ -33,7 +33,7 @@ namespace HITW.Function
         }
 
         [FunctionName("RewardUsed")]
-        public async Task<IActionResult> Run(
+        public async Task<IActionResult> Run2(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "rewards/available/{id}")] HttpRequest req,
             ILogger log, int id)
         {
