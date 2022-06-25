@@ -11,14 +11,16 @@
     </div>
     <div class="padding-left-1 flex flex-direction-column flex-grow">
         <div>
-            <span *ngIf="reward?.code === 'SHOWER'">I took a shower instead of a bath.</span>
+            <span *ngIf="reward?.code === 'SHOWER'">I took a shower instead of a bath today.</span>
             <span *ngIf="reward?.code === 'VEGGIE'">I went veggie today.</span>
-            <span *ngIf="reward?.code === 'TRANSPORTATION'">I used public transportation.</span>
-            <span *ngIf="reward?.code === 'PLASTIC'">I brought my own bag at the grocery store.</span>
+            <span *ngIf="reward?.code === 'TRANSPORTATION'">I used public transportation today instead of my car.</span>
+            <span *ngIf="reward?.code === 'PLASTIC'">I brought my own bag at the grocery store today.</span>
             <span *ngIf="reward?.code === 'RECYCLING'">I recycled all my waste today.</span>
-            <span *ngIf="reward?.code === 'COMPUTER'">I turned of my computer instead of using battery save mode.</span>
-            <span *ngIf="reward?.code === 'THERMOSTAT'">I turned my thermostat down by 1°C today.</span>
-            <span *ngIf="reward?.code === 'DONATION'">I donated money to plan trees.</span>
+            <span *ngIf="reward?.code === 'COMPUTER'">I turned of my computer instead of using battery saving mode
+                today.</span>
+            <span *ngIf="reward?.code === 'THERMOSTAT'">I turned my thermostat down by 1°C lower than usual
+                today.</span>
+            <span *ngIf="reward?.code === 'DONATION'">I donated money to plan trees today.</span>
         </div>
         <small class="date">
             {{reward?.date | date}}
