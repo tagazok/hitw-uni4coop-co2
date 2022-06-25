@@ -18,6 +18,7 @@ namespace HITW.Function
     {
         public string Code { get; set; }
         public int Distance { get; set; }
+        public int Amount { get; set; }
         public int TripId { get; set; }
     }
 
@@ -53,7 +54,6 @@ namespace HITW.Function
                 return new BadRequestObjectResult("You already won today");
             }
 
-            // todo: map code to credit in co2
             var creditInKgOfCo2 = rreq.Code switch
             {
                 "VEGGIE" => Calculation.GoVeggie(),
@@ -63,6 +63,7 @@ namespace HITW.Function
                 "COMPUTER" => Calculation.TurnOffComputers(),
                 "THERMOSTAT" => Calculation.TurnDownThermostats(),
                 "RECYCLING" => Calculation.Recycling(),
+                "DONATION" => Calculation.Donation(),
                 _ => throw new ArgumentOutOfRangeException($"Invalid public code: {rreq.Code}")
             };
 
@@ -74,7 +75,13 @@ namespace HITW.Function
                     CreditInKgOfCo2 = creditInKgOfCo2,
                     Date = DateTime.UtcNow,
                     UserId = user.Id,
-                    TripId = rreq.TripId
+                    TripId = rreq.TripId,
+                    Data = rreq.Code switch
+                    {
+                        "TRANSPORTATION" => JsonConvert.SerializeObject(new { distance = rreq.Distance }),
+                        "DONATION" => JsonConvert.SerializeObject(new { amount = rreq.Amount }),
+                        _ => null
+                    }
                 });
 
                 _dbContext.SaveChanges();

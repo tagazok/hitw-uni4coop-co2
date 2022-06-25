@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace api.Data.Models
 {
@@ -17,6 +15,7 @@ namespace api.Data.Models
         [StringLength(256)]
         public string Code { get; set; }
         public int? TripId { get; set; }
+        public string Data { get; set; }
 
         [ForeignKey("TripId")]
         [InverseProperty("Histories")]

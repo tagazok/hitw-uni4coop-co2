@@ -65,8 +65,9 @@ namespace HITW.Function
 
             var body = JsonConvert.DeserializeObject<Trip>(await new StreamReader(req.Body).ReadToEndAsync());
 
-            var payload =   new {
-                        legs = new []
+            var payload = new
+            {
+                legs = new[]
                         {
                             new ClimatiqReq
                             {
@@ -75,7 +76,8 @@ namespace HITW.Function
                                 Passengers = 1,
                                 Cl = "economy"
                             }
-                        }};
+                        }
+            };
 
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
