@@ -73,7 +73,7 @@ Considering approximatively 30 days a month, $\frac{61}{30} = 2kg/day$.
 This estimation comes from this [website](http://content.time.com/time/specials/2007/environment/article/0,28804,1602354_1603074_1603535,00.html#:~:text=Compared%20with%20a%20machine%20left,just%2063%20kg%20a%20year.) stating that : 
 > Shutting it *[your computer]* off would reduce the machine's CO2 emissions 83%, to just 63 kg a year. 
 
-We estimated that $\frac{63}{365} = 0.172kg$ rounded up to 200g for simplicity
+We estimated that $\frac{63}{365} = 0.172kg$ rounded up to 200g for simplicity.
 
 7. *Turn down your thermostats by one degree saves 1kg CO2.* 
 
