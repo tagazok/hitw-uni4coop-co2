@@ -63,7 +63,7 @@ namespace HITW.Function
                 return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
             }
 
-            var body = JsonConvert.DeserializeObject<Trip>(await new StreamReader(req.Body).ReadToEndAsync());
+            var body = JsonConvert.DeserializeObject<Models.Trip>(await new StreamReader(req.Body).ReadToEndAsync());
 
             var payload = new
             {
@@ -107,7 +107,6 @@ namespace HITW.Function
             _dbContext.SaveChanges();
 
             return new OkObjectResult(_dbContext.Trips
-                .Where(x => x.UserId == user.Id)
                 .Where(x => x.Id == trip.Id)
                 .Select(x => new
             {
@@ -135,7 +134,7 @@ namespace HITW.Function
             {
                 return new StatusCodeResult((int)HttpStatusCode.Unauthorized);
             }
-            var trip = _dbContext.Trips.Include(x => x.Histories).Where(x => x.Id == id && x.UserId == user.Id)
+            var trip = _dbContext.Trips.Include(x => x.Histories).Where(x => x.Id == id)
                 .Include(x => x.Histories)
                 .SingleOrDefault();
             if (trip is null)
