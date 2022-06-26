@@ -14,7 +14,7 @@
         </div>
 
         <small *ngIf="trip.percentage > 60 && trip.percentage < 100">
-            Almost there. {{trip.co2 /100 * trip.percentage | number: '1.0-0'}}kg of CO2 until you are good!
+            Almost there. {{trip.co2 - (trip.co2 /100 * trip.percentage) | number: '1.0-0'}}kg of CO2 until you are good!
         </small>
         <small *ngIf="trip.percentage >= 100">
             Congratulations! You did it!
