@@ -8,9 +8,29 @@
                 <mat-hint>Give a name to your trip</mat-hint>
             </mat-form-field>
             <mat-form-field appearance="outline">
+                <mat-label>Departure</mat-label>
+                <input type="text" matInput formControlName="departure" required [matAutocomplete]="autoGroupDeparture">
+                <mat-autocomplete #autoGroupDeparture="matAutocomplete">
+                    <mat-option *ngFor="let airport of filteredOptionsDeparture |async" [value]="airport.code">
+                        {{airport.code}} ({{airport.city}}, {{airport.country}})
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Arrival</mat-label>
+                <input type="text" matInput formControlName="arrival" required [matAutocomplete]="autoGroupArrival">
+                <mat-autocomplete #autoGroupArrival="matAutocomplete">
+                    <mat-option *ngFor="let airport of filteredOptionsArrival |async" [value]="airport.code">
+                        {{airport.code}} ({{airport.city}}, {{airport.country}})
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <!-- <mat-form-field appearance="outline">
                 <mat-label>Departure (ex: JFK)</mat-label>
                 <input matInput formControlName="departure" required />
-            </mat-form-field>
+            </mat-form-field> -->
             <!-- <mat-form-field appearance="outline">
                 <mat-label>Departure</mat-label>
                 <input type="text" matInput formControlName="departure" [matAutocomplete]="auto">
@@ -20,10 +40,10 @@
                     </mat-option>
                 </mat-autocomplete>
             </mat-form-field> -->
-            <mat-form-field appearance="outline">
+            <!-- <mat-form-field appearance="outline">
                 <mat-label>Arrival (ex: CDG)</mat-label>
                 <input matInput formControlName="arrival" required />
-            </mat-form-field>
+            </mat-form-field> -->
             <mat-checkbox formControlName="isRoundTrip">Is this a round trip ?</mat-checkbox>
             <div class="margin-top-2"></div>
             <button mat-flat-button color="primary" type="submit" [disabled]="!addTripForm.valid">Add</button>

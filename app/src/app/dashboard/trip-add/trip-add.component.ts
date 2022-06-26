@@ -10,6 +10,12 @@ import { Airport } from 'src/app/models/airport';
 import { Trip } from 'src/app/models/trip';
 import { TripService } from 'src/app/services/trip.service';
 
+export const _filter = (opt: string[], value: string): string[] => {
+  const filterValue = value.toLowerCase();
+
+  return opt.filter(item => item.toLowerCase().includes(filterValue));
+};
+
 @Component({
   selector: 'app-trip-add',
   templateUrl: './trip-add.component.html',
@@ -21,10 +27,25 @@ export class TripAddComponent implements OnInit {
     label: ['', Validators.required],
     departure: ['', Validators.required],
     arrival: ['', Validators.required],
+    // departure: this.fb.group({
+    //   code: ['', Validators.required],
+    //   city: ['', Validators.required],
+    //   country: ['', Validators.required]
+    // }),
+    // arrival: this.fb.group({
+    //   code: ['', Validators.required],
+    //   city: ['', Validators.required],
+    //   country: ['', Validators.required]
+    // }),
     isRoundTrip: [false, Validators.required]
   });
   // filteredOptions?: Observable<Airport[]>;
-  // airports: Airport[] = [{ code: 'CDG', city: 'Paris', country: 'France' }];
+  airports: Airport[] = [
+    { code: 'CDG', city: 'Paris', country: 'France' },
+    { code: 'BRU', city: 'Bruxelles', country: 'Belgium' }
+  ];
+  filteredOptionsDeparture?: Observable<Airport[]>;
+  filteredOptionsArrival?: Observable<Airport[]>;
 
   constructor(
     private fb: FormBuilder,
@@ -42,7 +63,6 @@ export class TripAddComponent implements OnInit {
       co2: 0
     };
 
-
     this.tripService.addTrip(trip).subscribe({
       next: (trip: Trip) => {
         this.router.navigate(['/dashboard/trips/' + trip.id]);
@@ -54,21 +74,26 @@ export class TripAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.filteredOptions = this.addTripForm.controls.departure.valueChanges.pipe(
-    //   startWith(''),
-    //   map(value => (typeof value === 'string' ? value : value?.code),
-    //     map(name => (name ? this._filter(name) : this.airports.slice())),
-    //   );
+    this.filteredOptionsDeparture = this.addTripForm.controls.departure.valueChanges.pipe(
+      startWith(''),
+      map((value: any) => (typeof value === 'string' ? value : value?.code)),
+      map((code: string) => (code ? this._filter(code) : this.airports.slice())),
+    );
+    this.filteredOptionsArrival = this.addTripForm.controls.arrival.valueChanges.pipe(
+      startWith(''),
+      map((value: any) => (typeof value === 'string' ? value : value?.code)),
+      map((code: string) => (code ? this._filter(code) : this.airports.slice())),
+    );
   }
 
-  // displayFn(airport: Airport): string {
-  //   return airport && airport.code ? airport.code : '';
-  // }
+  displayFn(airport: Airport): string {
+    return airport && airport.code ? airport.code : '';
+  }
 
-  // private _filter(name: string): Airport[] {
-  //   const filterValue = name.toLowerCase();
+  private _filter(code: string): Airport[] {
+    const filterValue = code.toLowerCase();
 
-  //   return this.airports.filter(option => option.code.toLowerCase().includes(filterValue));
-  // }
+    return this.airports.filter(option => option.code.toLowerCase().includes(filterValue));
+  }
 
 }
