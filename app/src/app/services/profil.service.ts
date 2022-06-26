@@ -13,7 +13,7 @@ export class ProfilService {
     private httpClient: HttpClient
   ) { }
 
-  public getUserProfile(id: number): Observable<Profile> {
+  public getUserProfile(id: string): Observable<Profile> {
     return this.httpClient.get<Profile>(`${this.urlAPI}${id}`);
   }
 }

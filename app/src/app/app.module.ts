@@ -36,6 +36,7 @@ import { BadgeDetailsComponent } from './badge-details/badge-details.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ActivityAddAmountModalComponent } from './dashboard/activity-add-amount-modal/activity-add-amount-modal.component';
+import { StatsComponent } from './dashboard/stats/stats.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ActivityAddAmountModalComponent } from './dashboard/activity-add-amount
     ProfileComponent,
     ActivityAddTransportModalComponent,
     BadgeDetailsComponent,
-    ActivityAddAmountModalComponent
+    ActivityAddAmountModalComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,

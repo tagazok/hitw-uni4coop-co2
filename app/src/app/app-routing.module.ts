@@ -7,6 +7,7 @@ import { TripInfoComponent } from './dashboard/trip-info/trip-info.component';
 import { ActivityAddComponent } from './dashboard/activity-add/activity-add.component';
 import { ProfileComponent } from './profile/profile.component';
 import { IsAuthenticatedGuard } from './guards/is-authenticated.guard';
+import { StatsComponent } from './dashboard/stats/stats.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: HomeComponent, canActivate: [IsAuthenticatedGuard] },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard/trips/:id', component: TripInfoComponent, canActivate: [IsAuthenticatedGuard] },
+  { path: 'dashboard/stats', component: StatsComponent, canActivate: [IsAuthenticatedGuard] },
   { path: 'dashboard/activity/add/:tripId', component: ActivityAddComponent, canActivate: [IsAuthenticatedGuard] },
   { path: 'users/:userId', component: ProfileComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
