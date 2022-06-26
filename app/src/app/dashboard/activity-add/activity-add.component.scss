@@ -4,26 +4,37 @@
     width: 30vw;
     z-index: 999;
   }
-  .activity-row-card > div {
-    height: 100%;
+  .activity-row-card-div {
     width: 100%;
     > p {
-      text-align: center;
+      width: 100%;
+      white-space: break-spaces;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: normal;
+      line-break: strict;
+      hyphens: none;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      line-height: 1em;
     }
   }
-
 }
 #header {
   // background-color: #5268e5;
   background: rgb(98, 2, 207);
-  background: linear-gradient(45deg, rgba(98, 2, 207, 1) 0%, rgba(92, 0, 242, 1) 100%);
+  background: linear-gradient(
+    45deg,
+    rgba(98, 2, 207, 1) 0%,
+    rgba(92, 0, 242, 1) 100%
+  );
   color: #fff;
   position: relative;
 
   #trophy {
     position: absolute;
     max-width: 25%;
-    opacity: .1;
+    opacity: 0.1;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
