@@ -1,0 +1,33 @@
+.profile {
+    .trophy {
+        max-width: 25%;
+
+        .value {
+            font-weight: 700;
+            font-size: 2em;
+        }
+    }
+}
+
+.stats {
+    .stat {
+        width: 30%;
+        max-width: 200px;
+        padding-bottom: 2em;
+
+        .data {
+            font-size: 1.5em;
+            font-weight: 500;
+        }
+
+        .label {
+            font-size: .8em;
+            font-weight: 200;
+            text-transform: uppercase;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}
