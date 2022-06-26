@@ -23,7 +23,14 @@
       <div
         class="flex flex-direction-column align-items-center justify-content-center activity-row-card-div"
       >
-        <mat-icon>no_food</mat-icon>
+        <img
+          class="margin-bottom-1 margin-top-1"
+          src="/assets/images/icons/veggie.png"
+          width="70%"
+          [ngClass]="{
+            disabled: !availableActivities.includes(code.VEGGIE)
+          }"
+        />
         <p>Veggie Day</p>
       </div>
     </button>
@@ -37,7 +44,14 @@
       <div
         class="flex flex-direction-column align-items-center justify-content-center activity-row-card-div"
       >
-        <mat-icon>directions_bus</mat-icon>
+        <img
+          class="margin-bottom-1 margin-top-1"
+          src="/assets/images/icons/transportation.png"
+          width="70%"
+          [ngClass]="{
+            disabled: !availableActivities.includes(code.TRANSPORTATION)
+          }"
+        />
         <p>Public transp.</p>
       </div>
     </button>
@@ -54,7 +68,14 @@
       <div
         class="flex flex-direction-column align-items-center justify-content-center activity-row-card-div"
       >
-        <mat-icon>shower</mat-icon>
+        <img
+          src="/assets/images/icons/shower.png"
+          width="70%"
+          class="margin-top-1"
+          [ngClass]="{
+            disabled: !availableActivities.includes(code.SHOWER)
+          }"
+        />
         <p>Replace bath</p>
       </div>
     </button>
@@ -67,7 +88,14 @@
       <div
         class="flex flex-direction-column align-items-center justify-content-center activity-row-card-div"
       >
-        <mat-icon>shopping_bag</mat-icon>
+        <img
+          src="/assets/images/icons/plastic.png"
+          class="margin-top-1"
+          width="70%"
+          [ngClass]="{
+            disabled: !availableActivities.includes(code.PLASTIC)
+          }"
+        />
         <p>Reusable bag</p>
       </div>
     </button>
@@ -84,7 +112,13 @@
       <div
         class="flex flex-direction-column align-items-center justify-content-center activity-row-card-div"
       >
-        <mat-icon>recycling</mat-icon>
+        <img
+          src="/assets/images/icons/recycling.png"
+          width="70%"
+          [ngClass]="{
+            disabled: !availableActivities.includes(code.RECYCLING)
+          }"
+        />
         <p>Recycle</p>
       </div>
     </button>
@@ -97,7 +131,13 @@
       <div
         class="flex flex-direction-column align-items-center justify-content-center activity-row-card-div"
       >
-        <mat-icon>power_settings_new</mat-icon>
+        <img
+          src="/assets/images/icons/computer.png"
+          width="70%"
+          [ngClass]="{
+            disabled: !availableActivities.includes(code.COMPUTER)
+          }"
+        />
         <p>Shut down electronics</p>
       </div>
     </button>
@@ -114,7 +154,14 @@
       <div
         class="flex flex-direction-column align-items-center justify-content-center activity-row-card-div"
       >
-        <mat-icon>device_thermostat</mat-icon>
+        <img
+          class="margin-top-1"
+          src="/assets/images/icons/thermostat.png"
+          width="70%"
+          [ngClass]="{
+            disabled: !availableActivities.includes(code.THERMOSTAT)
+          }"
+        />
         <p>Decrease temp.</p>
       </div>
     </button>
@@ -127,7 +174,13 @@
       <div
         class="flex flex-direction-column align-items-center justify-content-center activity-row-card-div"
       >
-        <mat-icon>money</mat-icon>
+        <img
+          src="/assets/images/icons/donation.png"
+          width="70%"
+          [ngClass]="{
+            disabled: !availableActivities.includes(code.DONATION)
+          }"
+        />
         <p>Donate</p>
       </div>
     </button>
