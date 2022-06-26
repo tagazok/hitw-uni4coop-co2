@@ -14,56 +14,56 @@
     </div>
     <div class="text-center padding-1 stats">
         <div class="flex flex-direction-row flex-wrap-wrap justify-content-space-between badges">
-            <div class="stat">
+            <div class="stat" (click)="openStatsDetails('transportation')">
                 <img src="/assets/images/icons/transportation.png" />
                 <div class="infos">
                     <div class="data">{{userProfile?.totalDistance}}</div>
                     <div class="label">km</div>
                 </div>
             </div>
-            <div class="stat">
+            <div class="stat" (click)="openStatsDetails('computer')">
                 <img src="/assets/images/icons/computer.png" />
                 <div class="infos">
                     <div class="data">{{userProfile?.computer}}</div>
                     <div class="label">days</div>
                 </div>
             </div>
-            <div class="stat">
+            <div class="stat" (click)="openStatsDetails('veggie')">
                 <img src="/assets/images/icons/veggie.png" />
                 <div class="infos">
                     <div class="data">{{userProfile?.veggie}}</div>
                     <div class="label">days</div>
                 </div>
             </div>
-            <div class="stat">
+            <div class="stat" (click)="openStatsDetails('plastic')">
                 <img src="/assets/images/icons/plastic.png" />
                 <div class="infos">
                     <div class="data">{{userProfile?.plastic}}</div>
                     <div class="label">plastic bags</div>
                 </div>
             </div>
-            <div class="stat">
+            <div class="stat" (click)="openStatsDetails('recycling')">
                 <img src="/assets/images/icons/recycling.png" />
                 <div class="infos">
                     <div class="data">{{userProfile?.recycling}}</div>
                     <div class="label">recycled</div>
                 </div>
             </div>
-            <div class="stat">
+            <div class="stat" (click)="openStatsDetails('thermostat')">
                 <img src="/assets/images/icons/thermostat.png" />
                 <div class="infos">
                     <div class="data">{{userProfile?.thermostat}}</div>
                     <div class="label">days</div>
                 </div>
             </div>
-            <div class="stat">
+            <div class="stat" (click)="openStatsDetails('shower')">
                 <img src="/assets/images/icons/shower.png" />
                 <div class="infos">
                     <div class="data">{{userProfile?.shower}}</div>
                     <div class="label">showers</div>
                 </div>
             </div>
-            <div class="stat">
+            <div class="stat" (click)="openStatsDetails('donation')">
                 <img src="/assets/images/icons/donation.png" />
                 <div class="infos">
                     <div class="data">{{userProfile?.totalDonation}}</div>

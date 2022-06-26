@@ -37,6 +37,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ActivityAddAmountModalComponent } from './dashboard/activity-add-amount-modal/activity-add-amount-modal.component';
 import { StatsComponent } from './dashboard/stats/stats.component';
+import { StatDetailsComponent } from './stat-details/stat-details.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { StatsComponent } from './dashboard/stats/stats.component';
     ActivityAddTransportModalComponent,
     BadgeDetailsComponent,
     ActivityAddAmountModalComponent,
-    StatsComponent
+    StatsComponent,
+    StatDetailsComponent
   ],
   imports: [
     BrowserModule,
