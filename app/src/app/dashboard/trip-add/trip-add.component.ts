@@ -30,20 +30,28 @@ export class TripAddComponent implements OnInit {
     // departure: this.fb.group({
     //   code: ['', Validators.required],
     //   city: ['', Validators.required],
-    //   country: ['', Validators.required]
+    //  country ['', Validators.required]
     // }),
     // arrival: this.fb.group({
     //   code: ['', Validators.required],
     //   city: ['', Validators.required],
-    //   country: ['', Validators.required]
+    //  country ['', Validators.required]
     // }),
     isRoundTrip: [false, Validators.required]
   });
   // filteredOptions?: Observable<Airport[]>;
   airports: Airport[] = [
     { code: 'CDG', city: 'Paris', country: 'France' },
-    { code: 'BRU', city: 'Bruxelles', country: 'Belgium' }
+    { code: 'BRU', city: 'Bruxelles', country: 'Belgium' },
+    { city: "Norresundby", code: "AAL", country: "Denmark" },
+    { city: "London", code: "LCY", country: "United Kingdom" },
+    { city: "Rome", code: "CIA", country: "Italy" },
+    { city: "Berlin", code: "THF", country: "Germany" },
+    { city: "Oslo", code: "XZO", country: "Norway" },
+    { city: "Stockholm", code: "XEV", country: "Sweden" },
+    { city: "Madrid", code: "MAD", country: "Spain" }
   ];
+
   filteredOptionsDeparture?: Observable<Airport[]>;
   filteredOptionsArrival?: Observable<Airport[]>;
 
